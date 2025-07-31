@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useTranslation } from 'react-i18next'
 
 import Button from '@mui/material/Button'
 import Dialog from '@mui/material/Dialog'
@@ -47,6 +48,7 @@ const formElementCSS = {
 }
 
 const Settings = (props) => {
+    const { t } = useTranslation()
     const [baudRate, setBaudRate] = React.useState(props.settings.baudRate)
     const [lineEnding, setLineEnding] = React.useState(props.settings.lineEnding)
     const [echoFlag, setEchoFlag] = React.useState(props.settings.echoFlag)
@@ -87,15 +89,15 @@ const Settings = (props) => {
 
     return (
         <Dialog open={props.open} onClose={props.close}>
-            <DialogTitle>Settings</DialogTitle>
+            <DialogTitle>{t('settings.title')}</DialogTitle>
 
             <DialogContent>
                 <DialogContentText>
-                    Serial Connection
+                    {t('settings.serialConnection')}
                 </DialogContentText>
 
                 <FormControl variant='filled' fullWidth sx={formElementCSS}>
-                    <InputLabel>Baud Rate {props.openPort && '(Requires Reconnect)'}</InputLabel>
+                    <InputLabel>{props.openPort ? t('settings.baudRateReconnect') : t('settings.baudRate')}</InputLabel>
                     <Select
                         value={baudRate}
                         onChange={(e) => setBaudRate(e.target.value)}
@@ -109,7 +111,7 @@ const Settings = (props) => {
                 </FormControl>
 
                 <FormControl variant='filled' fullWidth sx={formElementCSS} >
-                    <InputLabel>Line Ending</InputLabel>
+                    <InputLabel>{t('settings.lineEnding')}</InputLabel>
                     <Select
                         value={lineEnding}
                         onChange={(e) => setLineEnding(e.target.value)}
@@ -127,7 +129,7 @@ const Settings = (props) => {
                             checked={echoFlag}
                             onChange={(e) => setEchoFlag(e.target.checked)}
                         />
-                    } label='Show input (echo)' />
+                    } label={t('settings.showInput')} />
                 </FormGroup>
                 
                 <FormGroup>
@@ -136,7 +138,7 @@ const Settings = (props) => {
                             checked={timeFlag}
                             onChange={(e) => setTimeFlag(e.target.checked)}
                         />
-                    } label='Show timestamps' />
+                    } label={t('settings.showTimestamps')} />
                 </FormGroup>
                 
                 <FormGroup>
@@ -145,15 +147,15 @@ const Settings = (props) => {
                             checked={ctrlFlag}
                             onChange={(e) => setCtrlFlag(e.target.checked)}
                         />
-                    } label='Detect CTRL+C, CTRL+D' />
+                    } label={t('settings.detectCtrl')} />
                 </FormGroup>
 
             </DialogContent>
 
             <DialogActions>
-                <Button onClick={reset} color='error'>Reset</Button>
-                <Button onClick={cancel} color='secondary'>Cancel</Button>
-                <Button onClick={save} color='primary'>Save</Button>
+                <Button onClick={reset} color='error'>{t('settings.buttons.reset')}</Button>
+                <Button onClick={cancel} color='secondary'>{t('settings.buttons.cancel')}</Button>
+                <Button onClick={save} color='primary'>{t('settings.buttons.save')}</Button>
             </DialogActions>
         </Dialog>
     )

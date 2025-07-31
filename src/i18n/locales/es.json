@@ -1,0 +1,68 @@
+{
+	"app": {
+		"title": "Terminal Serial",
+		"toasts": {
+			"connected": "Conectado 🚀",
+			"disconnected": "Conexión perdida 🙀",
+			"historyCleared": "Historial borrado 🧹",
+			"settingsSaved": "Configuración guardada ✨"
+		}
+	},
+	"header": {
+		"title": "Terminal Serial",
+		"moreTools": "Más Herramientas"
+	},
+	"home": {
+		"connect": "Conectar",
+		"instructions": {
+			"step1": "1. Haz clic en CONECTAR",
+			"step2": "2. Conecta tu dispositivo y selecciona el puerto",
+			"step3": "3. ¡Utiliza el del Terminal Serial! 😊"
+		},
+		"browserNotSupported": {
+			"title": "Tu navegador no soporta Web Serial 😭",
+			"tryUsing": "Intenta usar",
+			"chrome": "Chrome",
+			"edge": "Edge",
+			"opera": "Opera",
+			"mobileNotSupported": "(Los navegadores de iOS y Android no son compatibles)",
+			"learnMore": "Aprende más sobre",
+			"browserCompatibility": "compatibilidad de navegadores"
+		}
+	},
+	"terminal": {
+		"input": "Entrada",
+		"send": "Enviar",
+		"history": "Historial"
+	},
+	"settings": {
+		"title": "Configuración",
+		"serialConnection": "Conexión Serial",
+		"baudRate": "Velocidad de Baudios",
+		"baudRateReconnect": "Velocidad de Baudios (Requiere Reconexión)",
+		"lineEnding": "Final de Línea",
+		"showInput": "Mostrar entrada (eco)",
+		"showTimestamps": "Mostrar marcas de tiempo",
+		"detectCtrl": "Detectar CTRL+C, CTRL+D",
+		"buttons": {
+			"reset": "Restablecer",
+			"cancel": "Cancelar",
+			"save": "Guardar"
+		}
+	},
+	"error": {
+		"connectionFailed": "Falló la conexión",
+		"somethingWentWrong": "Parece que algo salió mal 😢",
+		"recommendChrome": "Recomendamos usar la última versión de",
+		"forDesktop": "para escritorio.",
+		"close": "Cerrar"
+	},
+	"footer": {
+		"madeWith": "Hecho con ❤️ por"
+	},
+	"language": {
+		"selector": "Idioma",
+		"english": "English",
+		"spanish": "Español"
+	}
+}

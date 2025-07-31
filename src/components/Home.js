@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useTranslation } from 'react-i18next'
 
 import Box from '@mui/material/Grid'
 import Grid from '@mui/material/Grid'
@@ -10,7 +11,7 @@ import AlertTitle from '@mui/material/AlertTitle'
 import ChromeIcon from '../icons/Chrome'
 import EdgeIcon from '../icons/Edge'
 import OperaIcon from '../icons/Opera'
-import SettingsIcon from '@mui/icons-material/Settings'
+import ElectricalServicesIcon from '@mui/icons-material/ElectricalServices'
 
 const gridCSS = {
     height: 'calc(100vh - 160px)',
@@ -18,6 +19,8 @@ const gridCSS = {
 }
 
 const Home = (props) => {
+    const { t } = useTranslation()
+    
     return (
         <Grid
             container
@@ -33,47 +36,41 @@ const Home = (props) => {
                 {props.supported() ?
                     <Box align='center'>
                         <Box>
-                            <Button variant='contained' color='success' size='large' onClick={props.connect} sx={{ m: 1 }}>
-                                Connect
-                            </Button>
-                        </Box>
-
-                        <Box>
-                            <Button size='large' onClick={props.openSettings} sx={{ m: 1, color:'#bebebe' }}>
-                                <SettingsIcon />
+                            <Button variant='contained' color='success' size='large' onClick={props.connect} sx={{ m: 1 }} startIcon={<ElectricalServicesIcon />}>
+                                {t('home.connect')}
                             </Button>
                         </Box>
 
                         <Alert severity='info' align='left'>
-                            1. Click on CONNECT<br />
-                            2. Plug in your device & select the port<br />
-                            3. Enjoy the Serial Terminal 😊<br />
+                            {t('home.instructions.step1')}<br />
+                            {t('home.instructions.step2')}<br />
+                            {t('home.instructions.step3')}<br />
                         </Alert>
                     </Box>
 
                     :
 
                     <Alert severity='warning'>
-                        <AlertTitle>Your browser doesn&apos;t support Web Serial 😭</AlertTitle>
-                        Try using&nbsp;
+                        <AlertTitle>{t('home.browserNotSupported.title')}</AlertTitle>
+                        {t('home.browserNotSupported.tryUsing')}&nbsp;
                         <a href='https://www.google.com/chrome/' target='blank'>
-                            <ChromeIcon fontSize='inherit' /> <b>Chrome</b>
+                            <ChromeIcon fontSize='inherit' /> <b>{t('home.browserNotSupported.chrome')}</b>
                         </a>
                         ,&nbsp;
                         <a href='https://www.microsoft.com/en-us/edge' target='blank'>
-                            <EdgeIcon fontSize='inherit' /> <b>Edge</b>
+                            <EdgeIcon fontSize='inherit' /> <b>{t('home.browserNotSupported.edge')}</b>
                         </a>
                         , or&nbsp;
                         <a href='https://www.opera.com/' target='blank'>
-                            <OperaIcon fontSize='inherit' /> <b>Opera</b>
+                            <OperaIcon fontSize='inherit' /> <b>{t('home.browserNotSupported.opera')}</b>
                         </a>
                         <br />
-                        (IOS & Android browsers are not supported)
+                        {t('home.browserNotSupported.mobileNotSupported')}
                         <br />
                         <br />
-                        Learn more about&nbsp;
+                        {t('home.browserNotSupported.learnMore')}&nbsp;
                         <a href='https://developer.mozilla.org/en-US/docs/Web/API/Serial#browser_compatibility' target='blank'>
-                            browser compatibility
+                            {t('home.browserNotSupported.browserCompatibility')}
                         </a>
                     </Alert>
                 }

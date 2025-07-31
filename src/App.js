@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 import Box from '@mui/material/Box'
 import Snackbar from '@mui/material/Snackbar'
@@ -42,6 +43,7 @@ const loadSettings = () => {
 }
 
 function App() {
+  const { t } = useTranslation()
   // Serial Module
   const [serial] = React.useState(new Serial())
 
@@ -83,12 +85,12 @@ function App() {
 
     serial.onSuccess = () => {
       setConnected(true)
-      setToast({ open: true, severity: 'success', value: 'Connected 🚀' })
+      setToast({ open: true, severity: 'success', value: t('app.toasts.connected') })
     }
 
     serial.onFail = () => {
       setConnected(false)
-      setToast({ open: true, severity: 'error', value: 'Lost connection 🙀' })
+      setToast({ open: true, severity: 'error', value: t('app.toasts.disconnected') })
     }
 
     serial.onReceive = (value) => {
@@ -106,11 +108,6 @@ function App() {
       }
     })
   }
-  /*
-  const disconnect = () => {
-    serial.close()
-    setConnected(false)
-  }*/
 
   const handleSend = (str) => {
     const map = {
@@ -127,11 +124,18 @@ function App() {
     serial.sendByte(byte)
   }
 
+  React.useEffect(() => {
+    const handler = () => setSettingsOpen(true)
+    window.addEventListener('openSettings', handler)
+    return () => window.removeEventListener('openSettings', handler)
+  }, [])
+
   return (
     <Box sx={{
       display: 'flex',
       flexDirection: 'column',
       minHeight: '100vh',
+      background: 'linear-gradient(135deg, #000 0%, #6a1b9a 100%)',
     }}>
       {/* Header */}
       <Header />
@@ -146,7 +150,7 @@ function App() {
           echo={settings.echoFlag}
           time={settings.timeFlag}
           ctrl={settings.ctrlFlag}
-          clearToast={() => setToast({ open: true, severity: 'info', value: 'History cleared 🧹' })}
+          clearToast={() => setToast({ open: true, severity: 'info', value: t('app.toasts.historyCleared') })}
         />
         :
         <Home
@@ -163,7 +167,7 @@ function App() {
         settings={settings}
         save={saveSettings}
         openPort={connected}
-        saveToast={() => setToast({ open: true, severity: 'success', value: 'Settings saved ✨' })}
+        saveToast={() => setToast({ open: true, severity: 'success', value: t('app.toasts.settingsSaved') })}
       />
 
       {/* (Dis)connected Toast */}

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useTranslation } from 'react-i18next'
 
 import Button from '@mui/material/Button'
 import Dialog from '@mui/material/Dialog'
@@ -11,10 +12,11 @@ import Typography from '@mui/material/Typography'
 import ChromeIcon from '../icons/Chrome'
 
 const ErrorMessage = (props) => {
+    const { t } = useTranslation()
 
     return (
         <Dialog open={props.open} onClose={props.close}>
-            <DialogTitle>Connection failed</DialogTitle>
+            <DialogTitle>{t('error.connectionFailed')}</DialogTitle>
 
             <DialogContent>
                 <DialogContentText>
@@ -22,16 +24,16 @@ const ErrorMessage = (props) => {
                 </DialogContentText>
 
                 <Typography sx={{ mt: 2 }}>
-                    Looks like something went wrong 😢<br />
-                    We recommend using the latest version of&nbsp;
+                    {t('error.somethingWentWrong')}<br />
+                    {t('error.recommendChrome')}&nbsp;
                     <a href='https://www.google.com/chrome/' target='blank'>
-                        <ChromeIcon fontSize='inherit' /> <b>Chrome</b>
-                    </a> for desktop.
+                        <ChromeIcon fontSize='inherit' /> <b>{t('home.browserNotSupported.chrome')}</b>
+                    </a> {t('error.forDesktop')}
                 </Typography>
             </DialogContent>
 
             <DialogActions>
-                <Button onClick={props.close} color='primary'>Close</Button>
+                <Button onClick={props.close} color='primary'>{t('error.close')}</Button>
             </DialogActions>
         </Dialog>
     )

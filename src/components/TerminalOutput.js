@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useTranslation } from 'react-i18next'
 
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
@@ -18,6 +19,7 @@ import TerminalIcon from '@mui/icons-material/Terminal'
 import './TerminalOutput.css'
 
 const TerminalOutput = (props) => {
+    const { t } = useTranslation()
     // User input history window
     const [historyOpen, setHistoryOpen] = React.useState(false)
 
@@ -66,7 +68,7 @@ const TerminalOutput = (props) => {
                 onClose={() => setHistoryOpen(false)}
             >
                 <DialogTitle>
-                    History
+                    {t('terminal.history')}
                 </DialogTitle>
                 <List sx={{ minWidth: '10em' }}>
                     {props.history.filter(line => line.type === 'userInput').map((line, i) => (

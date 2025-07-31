@@ -1,0 +1,68 @@
+{
+	"app": {
+		"title": "Serial Terminal",
+		"toasts": {
+			"connected": "Connected 🚀",
+			"disconnected": "Lost connection 🙀",
+			"historyCleared": "History cleared 🧹",
+			"settingsSaved": "Settings saved ✨"
+		}
+	},
+	"header": {
+		"title": "Serial Terminal",
+		"moreTools": "More Tools"
+	},
+	"home": {
+		"connect": "Connect",
+		"instructions": {
+			"step1": "1. Click on CONNECT",
+			"step2": "2. Plug in your device & select the port",
+			"step3": "3. Enjoy the Serial Terminal 😊"
+		},
+		"browserNotSupported": {
+			"title": "Your browser doesn't support Web Serial 😭",
+			"tryUsing": "Try using",
+			"chrome": "Chrome",
+			"edge": "Edge",
+			"opera": "Opera",
+			"mobileNotSupported": "(IOS & Android browsers are not supported)",
+			"learnMore": "Learn more about",
+			"browserCompatibility": "browser compatibility"
+		}
+	},
+	"terminal": {
+		"input": "Input",
+		"send": "Send",
+		"history": "History"
+	},
+	"settings": {
+		"title": "Settings",
+		"serialConnection": "Serial Connection",
+		"baudRate": "Baud Rate",
+		"baudRateReconnect": "Baud Rate (Requires Reconnect)",
+		"lineEnding": "Line Ending",
+		"showInput": "Show input (echo)",
+		"showTimestamps": "Show timestamps",
+		"detectCtrl": "Detect CTRL+C, CTRL+D",
+		"buttons": {
+			"reset": "Reset",
+			"cancel": "Cancel",
+			"save": "Save"
+		}
+	},
+	"error": {
+		"connectionFailed": "Connection failed",
+		"somethingWentWrong": "Looks like something went wrong 😢",
+		"recommendChrome": "We recommend using the latest version of",
+		"forDesktop": "for desktop.",
+		"close": "Close"
+	},
+	"footer": {
+		"madeWith": "Made with ❤️ by"
+	},
+	"language": {
+		"selector": "Language",
+		"english": "English",
+		"spanish": "Español"
+	}
+}

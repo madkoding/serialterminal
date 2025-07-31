@@ -1,18 +1,22 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import AddBoxIcon from '@mui/icons-material/AddBox'
-import OpenInNewIcon from '@mui/icons-material/OpenInNew'
+import SettingsIcon from '@mui/icons-material/Settings'
+import LanguageSelector from './LanguageSelector'
 
 const Header = () => {
+    const { t } = useTranslation()
+    
     return (
         <AppBar
             position='static'
             sx={{
-                background: '#2c387e',
+                background: 'linear-gradient(90deg, #1a237e 0%, #6a1b9a 100%)',
             }}
         >
             <Toolbar>
@@ -31,17 +35,16 @@ const Header = () => {
                         fontFamily: 'Bungee',
                     }}
                 >
-                    &nbsp;&nbsp;Serial Terminal
+                    &nbsp;&nbsp;{t('header.title')}
                 </Typography>
 
+                <LanguageSelector />
+
                 <Button
-                    //variant='contained'
-                    //color='success'
                     sx={{ color: '#fff' }}
-                    href='https://huhn.me/'
-                    target='_blank'
-                    endIcon={<OpenInNewIcon />}>
-                    More Tools
+                    onClick={() => window.dispatchEvent(new CustomEvent('openSettings'))}
+                >
+                    <SettingsIcon />
                 </Button>
 
                 <Button
