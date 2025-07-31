@@ -70,12 +70,17 @@
 code {
     margin: .5rem;
     padding: 0;
-    font-family: Workbench, Roboto Mono, monospace;
+    font-family: 'Courier Prime', Courier, monospace;
     font-weight: 300;
-    font-size: 1.5rem;
-    line-height: 1.8;
-    font-variation-settings: "BLED" 0, "SCAN" -20;
-    text-shadow: 0 0 1px #ffff00, 0 0 3px #ffff0033, 0 0 8px #ffff0022, 0 0 15px #ffff0011;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    font-variation-settings: "BLED" 0, "SCAN" -40;
+    color: #e6e600; /* amarillo oscuro para que el brillo no invada el interior */
+    text-shadow:
+        0 0 8px #ffff0055,
+        0 0 16px #ffff0033,
+        0 0 32px #ffff0022,
+        0 0 64px #ffff0011;
 }
 
 code>p {
