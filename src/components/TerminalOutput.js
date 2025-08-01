@@ -54,7 +54,7 @@ const TerminalOutput = (props) => {
             <Box className='codeContainer'>
                 <code>
                     {props.history.filter(line => (line.type === 'output' || props.echo)).map((line, i) => (
-                        <p key={i}>
+                        <p key={`${line.time?.getTime() || Date.now()}-${i}-${line.type}`}>
                             <span className='time'>{props.time && `${line.time.toTimeString().substring(0, 8)} `}</span>
                             <span className={line.type}>{line.value}</span>
                         </p>
@@ -72,10 +72,14 @@ const TerminalOutput = (props) => {
                 </DialogTitle>
                 <List sx={{ minWidth: '10em' }}>
                     {props.history.filter(line => line.type === 'userInput').map((line, i) => (
-                        <ListItem button key={i} onClick={() => {
-                            props.setInput(line.value)
-                            setHistoryOpen(false)
-                        }}>
+                        <ListItem 
+                            key={`userInput-${line.time?.getTime() || Date.now()}-${i}-${line.value.substring(0, 20)}`} 
+                            onClick={() => {
+                                props.setInput(line.value)
+                                setHistoryOpen(false)
+                            }}
+                            sx={{ cursor: 'pointer' }}
+                        >
                             <ListItemIcon>
                                 <TerminalIcon />
                             </ListItemIcon>
