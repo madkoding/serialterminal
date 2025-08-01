@@ -135,7 +135,7 @@ function App() {
       display: 'flex',
       flexDirection: 'column',
       minHeight: '100vh',
-      background: 'linear-gradient(135deg, #000 0%, #6a1b9a 100%)',
+      background: 'linear-gradient(135deg, rgb(0, 0, 0) 0%, rgb(47 44 49) 100%);',
     }}>
       {/* Header */}
       <Header />
