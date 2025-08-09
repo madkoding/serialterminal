@@ -184,11 +184,14 @@ const TerminalOutput = (props) => {
       <Box className='codeContainer'>
         <code>
           {props.history
-            .filter(line => {
+            .filter((line, index, arr) => {
               if (props.echo) {
-                return line.type === 'output';
+                if (line.type === 'output' && arr[index - 1]?.type === 'userInput') {
+                  return false;
+                }
+                return true;
               }
-              return line.type === 'output' || line.type === 'userInput';
+              return line.type === 'output';
             })
             .map((line, i) => (
               <Line
