@@ -11,6 +11,7 @@ import Home from './components/Home'
 import Terminal from './components/Terminal'
 import Settings from './components/Settings'
 import ErrorMessage from './components/ErrorMessage'
+import ConnectionStatus from './components/ConnectionStatus'
 
 import Serial from './modules/Serial'
 import { setCookie, getCookie } from './modules/cookie.js'
@@ -49,6 +50,9 @@ function App() {
 
   // Connection Flag
   const [connected, setConnected] = React.useState(false)
+
+  // Connection Type (receiver, tracker, or null)
+  const [connectionType, setConnectionType] = React.useState(null)
 
   // Receive Buffer
   const [received, setReceived] = React.useState({ time: new Date(), value: '' })
@@ -90,6 +94,7 @@ function App() {
 
     serial.onFail = () => {
       setConnected(false)
+      setConnectionType(null)
       setToast({ open: true, severity: 'error', value: t('app.toasts.disconnected') })
     }
 
@@ -98,6 +103,15 @@ function App() {
         time: new Date(),
         value: `${value}`,
       })
+      
+      // Detect connection type based on received content
+      const receivedString = `${value}`.toLowerCase()
+      if (receivedString.includes('slimevr slimenrf receiver')) {
+        setConnectionType('receiver')
+      } else if (receivedString.includes('slimevr slimenrf tracker')) {
+        setConnectionType('tracker')
+      }
+      
       //console.log(value)
     }
 
@@ -139,6 +153,9 @@ function App() {
     }}>
       {/* Header */}
       <Header />
+
+      {/* Connection Status */}
+      {connected && <ConnectionStatus connectionType={connectionType} />}
 
       {/* Homepage or Terminal */}
       {connected ?

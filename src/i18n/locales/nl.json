@@ -1,0 +1,82 @@
+{
+	"app": {
+		"title": "Seriële Terminal",
+		"toasts": {
+			"connected": "Verbonden 🚀",
+			"disconnected": "Verbinding verloren 🙀",
+			"historyCleared": "Geschiedenis gewist 🧹",
+			"settingsSaved": "Instellingen opgeslagen ✨"
+		}
+	},
+	"header": {
+		"title": "Seriële Terminal",
+		"moreTools": "Meer Tools"
+	},
+	"home": {
+		"connect": "Verbinden",
+		"instructions": {
+			"step1": "1. Klik op VERBINDEN",
+			"step2": "2. Sluit uw apparaat aan en selecteer de poort",
+			"step3": "3. Geniet van de Seriële Terminal 😊"
+		},
+		"browserNotSupported": {
+			"title": "Uw browser ondersteunt Web Serial niet 😭",
+			"tryUsing": "Probeer",
+			"chrome": "Chrome",
+			"edge": "Edge",
+			"opera": "Opera",
+			"mobileNotSupported": "(iOS & Android browsers worden niet ondersteund)",
+			"learnMore": "Leer meer over",
+			"browserCompatibility": "browser compatibiliteit"
+		}
+	},
+	"terminal": {
+		"input": "Invoer",
+		"send": "Verzenden",
+		"history": "Geschiedenis"
+	},
+	"settings": {
+		"title": "Instellingen",
+		"serialConnection": "Seriële Verbinding",
+		"baudRate": "Baudrate",
+		"baudRateReconnect": "Baudrate (Vereist Herverbinding)",
+		"lineEnding": "Regel Einde",
+		"showInput": "Invoer tonen (echo)",
+		"showTimestamps": "Tijdstempels tonen",
+		"detectCtrl": "CTRL+C, CTRL+D detecteren",
+		"buttons": {
+			"reset": "Resetten",
+			"cancel": "Annuleren",
+			"save": "Opslaan"
+		}
+	},
+	"error": {
+		"connectionFailed": "Verbinding mislukt",
+		"somethingWentWrong": "Het lijkt erop dat er iets mis is gegaan 😢",
+		"recommendChrome": "We raden de nieuwste versie aan van",
+		"forDesktop": "voor desktop.",
+		"close": "Sluiten"
+	},
+	"footer": {
+		"madeWith": "Gemaakt met ❤️ door"
+	},
+	"language": {
+		"selector": "Taal",
+		"english": "English",
+		"spanish": "Español",
+		"french": "Français",
+		"italian": "Italiano",
+		"portuguese": "Português",
+		"german": "Deutsch",
+		"japanese": "日本語",
+		"korean": "한국어",
+		"chinese": "中文",
+		"russian": "Русский",
+		"arabic": "العربية",
+		"dutch": "Nederlands"
+	},
+	"connectionStatus": {
+		"usbReceiver": "Verbonden met USB Ontvanger",
+		"tracker": "Verbonden met madTracker"
+	}
+}

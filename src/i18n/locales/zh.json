@@ -1,0 +1,79 @@
+{
+	"app": {
+		"title": "串行终端",
+		"toasts": {
+			"connected": "已连接 🚀",
+			"disconnected": "连接断开 🙀",
+			"historyCleared": "历史记录已清除 🧹",
+			"settingsSaved": "设置已保存 ✨"
+		}
+	},
+	"header": {
+		"title": "串行终端",
+		"moreTools": "更多工具"
+	},
+	"home": {
+		"connect": "连接",
+		"instructions": {
+			"step1": "1. 点击连接",
+			"step2": "2. 插入您的设备并选择端口",
+			"step3": "3. 享受串行终端 😊"
+		},
+		"browserNotSupported": {
+			"title": "您的浏览器不支持 Web Serial 😭",
+			"tryUsing": "请尝试使用",
+			"chrome": "Chrome",
+			"edge": "Edge",
+			"opera": "Opera",
+			"mobileNotSupported": "(不支持 iOS 和 Android 浏览器)",
+			"learnMore": "了解更多关于",
+			"browserCompatibility": "浏览器兼容性"
+		}
+	},
+	"terminal": {
+		"input": "输入",
+		"send": "发送",
+		"history": "历史记录"
+	},
+	"settings": {
+		"title": "设置",
+		"serialConnection": "串行连接",
+		"baudRate": "波特率",
+		"baudRateReconnect": "波特率（需要重新连接）",
+		"lineEnding": "行结束符",
+		"showInput": "显示输入（回显）",
+		"showTimestamps": "显示时间戳",
+		"detectCtrl": "检测 CTRL+C, CTRL+D",
+		"buttons": {
+			"reset": "重置",
+			"cancel": "取消",
+			"save": "保存"
+		}
+	},
+	"error": {
+		"connectionFailed": "连接失败",
+		"somethingWentWrong": "似乎出了什么问题 😢",
+		"recommendChrome": "我们推荐使用最新版本的",
+		"forDesktop": "桌面版。",
+		"close": "关闭"
+	},
+	"footer": {
+		"madeWith": "用 ❤️ 制作"
+	},
+	"language": {
+		"selector": "语言",
+		"english": "English",
+		"spanish": "Español",
+		"french": "Français",
+		"italian": "Italiano",
+		"portuguese": "Português",
+		"german": "Deutsch",
+		"japanese": "日本語",
+		"korean": "한국어",
+		"chinese": "中文"
+	},
+	"connectionStatus": {
+		"usbReceiver": "已连接到 USB 接收器",
+		"tracker": "已连接到 madTracker"
+	}
+}

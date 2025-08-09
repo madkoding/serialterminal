@@ -4,6 +4,16 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 
 import enTranslation from './locales/en.json'
 import esTranslation from './locales/es.json'
+import frTranslation from './locales/fr.json'
+import itTranslation from './locales/it.json'
+import ptTranslation from './locales/pt.json'
+import deTranslation from './locales/de.json'
+import jaTranslation from './locales/ja.json'
+import koTranslation from './locales/ko.json'
+import zhTranslation from './locales/zh.json'
+import ruTranslation from './locales/ru.json'
+import arTranslation from './locales/ar.json'
+import nlTranslation from './locales/nl.json'
 
 const resources = {
   en: {
@@ -11,6 +21,36 @@ const resources = {
   },
   es: {
     translation: esTranslation
+  },
+  fr: {
+    translation: frTranslation
+  },
+  it: {
+    translation: itTranslation
+  },
+  pt: {
+    translation: ptTranslation
+  },
+  de: {
+    translation: deTranslation
+  },
+  ja: {
+    translation: jaTranslation
+  },
+  ko: {
+    translation: koTranslation
+  },
+  zh: {
+    translation: zhTranslation
+  },
+  ru: {
+    translation: ruTranslation
+  },
+  ar: {
+    translation: arTranslation
+  },
+  nl: {
+    translation: nlTranslation
   }
 }
 
@@ -42,7 +82,34 @@ const spanishSpeakingCountries = [
 // Función para detectar el país y determinar el idioma por defecto
 const getDefaultLanguage = () => {
   try {
-    // Intenta obtener la zona horaria para determinar el país
+    // Verificar el idioma del navegador primero
+    const browserLang = navigator.language || navigator.languages?.[0]
+    
+    if (browserLang) {
+      const langCode = browserLang.split('-')[0].toLowerCase()
+      
+      // Mapear códigos de idioma a los idiomas soportados
+      const supportedLanguages = {
+        'en': 'en',
+        'es': 'es',
+        'fr': 'fr',
+        'it': 'it',
+        'pt': 'pt',
+        'de': 'de',
+        'ja': 'ja',
+        'ko': 'ko',
+        'zh': 'zh',
+        'ru': 'ru',
+        'ar': 'ar',
+        'nl': 'nl'
+      }
+      
+      if (supportedLanguages[langCode]) {
+        return supportedLanguages[langCode]
+      }
+    }
+    
+    // Intenta obtener la zona horaria para determinar el país (para español)
     const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
     
     // Mapeo de zonas horarias a países hispanohablantes
@@ -87,18 +154,12 @@ const getDefaultLanguage = () => {
       return 'es'
     }
     
-    // Fallback: verificar el idioma del navegador
-    const browserLang = navigator.language || navigator.languages?.[0]
-    if (browserLang?.startsWith('es')) {
-      return 'es'
-    }
-    
     return 'en'
   } catch (error) {
     // Si hay algún error, registrarlo y verificar el idioma del navegador como fallback
     console.warn('Error detecting country from timezone:', error.message)
-    const browserLang = navigator.language || navigator.languages?.[0]
-    return browserLang?.startsWith('es') ? 'es' : 'en'
+    const fallbackBrowserLang = navigator.language || navigator.languages?.[0]
+    return fallbackBrowserLang?.startsWith('es') ? 'es' : 'en'
   }
 }
 

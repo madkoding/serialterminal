@@ -1,0 +1,73 @@
+{
+	"app": {
+		"title": "Terminal Série",
+		"toasts": {
+			"connected": "Connecté 🚀",
+			"disconnected": "Connexion perdue 🙀",
+			"historyCleared": "Historique effacé 🧹",
+			"settingsSaved": "Paramètres sauvegardés ✨"
+		}
+	},
+	"header": {
+		"title": "Terminal Série",
+		"moreTools": "Plus d'Outils"
+	},
+	"home": {
+		"connect": "Connecter",
+		"instructions": {
+			"step1": "1. Cliquez sur CONNECTER",
+			"step2": "2. Branchez votre appareil et sélectionnez le port",
+			"step3": "3. Profitez du Terminal Série 😊"
+		},
+		"browserNotSupported": {
+			"title": "Votre navigateur ne supporte pas Web Serial 😭",
+			"tryUsing": "Essayez d'utiliser",
+			"chrome": "Chrome",
+			"edge": "Edge",
+			"opera": "Opera",
+			"mobileNotSupported": "(Les navigateurs iOS et Android ne sont pas supportés)",
+			"learnMore": "En savoir plus sur",
+			"browserCompatibility": "la compatibilité des navigateurs"
+		}
+	},
+	"terminal": {
+		"input": "Entrée",
+		"send": "Envoyer",
+		"history": "Historique"
+	},
+	"settings": {
+		"title": "Paramètres",
+		"serialConnection": "Connexion Série",
+		"baudRate": "Débit en Bauds",
+		"baudRateReconnect": "Débit en Bauds (Nécessite une Reconnexion)",
+		"lineEnding": "Fin de Ligne",
+		"showInput": "Afficher l'entrée (écho)",
+		"showTimestamps": "Afficher les horodatages",
+		"detectCtrl": "Détecter CTRL+C, CTRL+D",
+		"buttons": {
+			"reset": "Réinitialiser",
+			"cancel": "Annuler",
+			"save": "Sauvegarder"
+		}
+	},
+	"error": {
+		"connectionFailed": "Échec de la connexion",
+		"somethingWentWrong": "Il semble que quelque chose s'est mal passé 😢",
+		"recommendChrome": "Nous recommandons d'utiliser la dernière version de",
+		"forDesktop": "pour ordinateur.",
+		"close": "Fermer"
+	},
+	"footer": {
+		"madeWith": "Fait avec ❤️ par"
+	},
+	"language": {
+		"selector": "Langue",
+		"english": "English",
+		"spanish": "Español",
+		"french": "Français"
+	},
+	"connectionStatus": {
+		"usbReceiver": "Connecté au Récepteur USB",
+		"tracker": "Connecté à madTracker"
+	}
+}

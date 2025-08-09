@@ -1,0 +1,76 @@
+{
+	"app": {
+		"title": "Serielles Terminal",
+		"toasts": {
+			"connected": "Verbunden 🚀",
+			"disconnected": "Verbindung verloren 🙀",
+			"historyCleared": "Verlauf gelöscht 🧹",
+			"settingsSaved": "Einstellungen gespeichert ✨"
+		}
+	},
+	"header": {
+		"title": "Serielles Terminal",
+		"moreTools": "Weitere Tools"
+	},
+	"home": {
+		"connect": "Verbinden",
+		"instructions": {
+			"step1": "1. Klicken Sie auf VERBINDEN",
+			"step2": "2. Schließen Sie Ihr Gerät an und wählen Sie den Port",
+			"step3": "3. Genießen Sie das Serielle Terminal 😊"
+		},
+		"browserNotSupported": {
+			"title": "Ihr Browser unterstützt Web Serial nicht 😭",
+			"tryUsing": "Versuchen Sie",
+			"chrome": "Chrome",
+			"edge": "Edge",
+			"opera": "Opera",
+			"mobileNotSupported": "(iOS & Android Browser werden nicht unterstützt)",
+			"learnMore": "Erfahren Sie mehr über",
+			"browserCompatibility": "Browser-Kompatibilität"
+		}
+	},
+	"terminal": {
+		"input": "Eingabe",
+		"send": "Senden",
+		"history": "Verlauf"
+	},
+	"settings": {
+		"title": "Einstellungen",
+		"serialConnection": "Serielle Verbindung",
+		"baudRate": "Baudrate",
+		"baudRateReconnect": "Baudrate (Erfordert Neuverbindung)",
+		"lineEnding": "Zeilenende",
+		"showInput": "Eingabe anzeigen (Echo)",
+		"showTimestamps": "Zeitstempel anzeigen",
+		"detectCtrl": "CTRL+C, CTRL+D erkennen",
+		"buttons": {
+			"reset": "Zurücksetzen",
+			"cancel": "Abbrechen",
+			"save": "Speichern"
+		}
+	},
+	"error": {
+		"connectionFailed": "Verbindung fehlgeschlagen",
+		"somethingWentWrong": "Es scheint, als wäre etwas schief gelaufen 😢",
+		"recommendChrome": "Wir empfehlen die neueste Version von",
+		"forDesktop": "für Desktop.",
+		"close": "Schließen"
+	},
+	"footer": {
+		"madeWith": "Erstellt mit ❤️ von"
+	},
+	"language": {
+		"selector": "Sprache",
+		"english": "English",
+		"spanish": "Español",
+		"french": "Français",
+		"italian": "Italiano",
+		"portuguese": "Português",
+		"german": "Deutsch"
+	},
+	"connectionStatus": {
+		"usbReceiver": "Mit USB-Empfänger verbunden",
+		"tracker": "Mit madTracker verbunden"
+	}
+}

@@ -63,6 +63,20 @@
 	"language": {
 		"selector": "Language",
 		"english": "English",
-		"spanish": "Español"
+		"spanish": "Español",
+		"french": "Français",
+		"italian": "Italiano",
+		"portuguese": "Português",
+		"german": "Deutsch",
+		"japanese": "日本語",
+		"korean": "한국어",
+		"chinese": "中文",
+		"russian": "Русский",
+		"arabic": "العربية",
+		"dutch": "Nederlands"
+	},
+	"connectionStatus": {
+		"usbReceiver": "Connected to USB Receiver",
+		"tracker": "Connected to madTracker"
 	}
 }

@@ -94,6 +94,7 @@ function applySgr(prevStyle, codes) {
  * @returns {Array<React.ReactNode>}
  */
 function renderAnsi(text) {
+  // eslint-disable-next-line no-control-regex
   const regex = /\x1b\[((?:\d{1,3})(?:;(?:\d{1,3}))*)m/g
   /** @type {Array<React.ReactNode>} */
   const nodes = []

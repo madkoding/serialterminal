@@ -1,0 +1,74 @@
+{
+	"app": {
+		"title": "Terminale Seriale",
+		"toasts": {
+			"connected": "Connesso 🚀",
+			"disconnected": "Connessione persa 🙀",
+			"historyCleared": "Cronologia cancellata 🧹",
+			"settingsSaved": "Impostazioni salvate ✨"
+		}
+	},
+	"header": {
+		"title": "Terminale Seriale",
+		"moreTools": "Altri Strumenti"
+	},
+	"home": {
+		"connect": "Connetti",
+		"instructions": {
+			"step1": "1. Clicca su CONNETTI",
+			"step2": "2. Collega il tuo dispositivo e seleziona la porta",
+			"step3": "3. Goditi il Terminale Seriale 😊"
+		},
+		"browserNotSupported": {
+			"title": "Il tuo browser non supporta Web Serial 😭",
+			"tryUsing": "Prova ad usare",
+			"chrome": "Chrome",
+			"edge": "Edge",
+			"opera": "Opera",
+			"mobileNotSupported": "(I browser iOS e Android non sono supportati)",
+			"learnMore": "Scopri di più sulla",
+			"browserCompatibility": "compatibilità dei browser"
+		}
+	},
+	"terminal": {
+		"input": "Input",
+		"send": "Invia",
+		"history": "Cronologia"
+	},
+	"settings": {
+		"title": "Impostazioni",
+		"serialConnection": "Connessione Seriale",
+		"baudRate": "Baud Rate",
+		"baudRateReconnect": "Baud Rate (Richiede Riconnessione)",
+		"lineEnding": "Fine Riga",
+		"showInput": "Mostra input (eco)",
+		"showTimestamps": "Mostra timestamp",
+		"detectCtrl": "Rileva CTRL+C, CTRL+D",
+		"buttons": {
+			"reset": "Ripristina",
+			"cancel": "Annulla",
+			"save": "Salva"
+		}
+	},
+	"error": {
+		"connectionFailed": "Connessione fallita",
+		"somethingWentWrong": "Sembra che qualcosa sia andato storto 😢",
+		"recommendChrome": "Raccomandiamo di usare l'ultima versione di",
+		"forDesktop": "per desktop.",
+		"close": "Chiudi"
+	},
+	"footer": {
+		"madeWith": "Fatto con ❤️ da"
+	},
+	"language": {
+		"selector": "Lingua",
+		"english": "English",
+		"spanish": "Español",
+		"french": "Français",
+		"italian": "Italiano"
+	},
+	"connectionStatus": {
+		"usbReceiver": "Connesso al Ricevitore USB",
+		"tracker": "Connesso a madTracker"
+	}
+}

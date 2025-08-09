@@ -1,0 +1,81 @@
+{
+	"app": {
+		"title": "الطرفية التسلسلية",
+		"toasts": {
+			"connected": "متصل 🚀",
+			"disconnected": "فقدان الاتصال 🙀",
+			"historyCleared": "تم مسح السجل 🧹",
+			"settingsSaved": "تم حفظ الإعدادات ✨"
+		}
+	},
+	"header": {
+		"title": "الطرفية التسلسلية",
+		"moreTools": "المزيد من الأدوات"
+	},
+	"home": {
+		"connect": "اتصال",
+		"instructions": {
+			"step1": "1. انقر على اتصال",
+			"step2": "2. قم بتوصيل جهازك واختر المنفذ",
+			"step3": "3. استمتع بالطرفية التسلسلية 😊"
+		},
+		"browserNotSupported": {
+			"title": "متصفحك لا يدعم Web Serial 😭",
+			"tryUsing": "جرب استخدام",
+			"chrome": "Chrome",
+			"edge": "Edge",
+			"opera": "Opera",
+			"mobileNotSupported": "(متصفحات iOS و Android غير مدعومة)",
+			"learnMore": "تعلم المزيد عن",
+			"browserCompatibility": "توافق المتصفحات"
+		}
+	},
+	"terminal": {
+		"input": "إدخال",
+		"send": "إرسال",
+		"history": "السجل"
+	},
+	"settings": {
+		"title": "الإعدادات",
+		"serialConnection": "الاتصال التسلسلي",
+		"baudRate": "معدل البود",
+		"baudRateReconnect": "معدل البود (يتطلب إعادة اتصال)",
+		"lineEnding": "نهاية السطر",
+		"showInput": "إظهار الإدخال (صدى)",
+		"showTimestamps": "إظهار الطوابع الزمنية",
+		"detectCtrl": "اكتشاف CTRL+C, CTRL+D",
+		"buttons": {
+			"reset": "إعادة تعيين",
+			"cancel": "إلغاء",
+			"save": "حفظ"
+		}
+	},
+	"error": {
+		"connectionFailed": "فشل الاتصال",
+		"somethingWentWrong": "يبدو أن هناك خطأ ما 😢",
+		"recommendChrome": "نوصي باستخدام أحدث إصدار من",
+		"forDesktop": "لسطح المكتب.",
+		"close": "إغلاق"
+	},
+	"footer": {
+		"madeWith": "صنع بـ ❤️ بواسطة"
+	},
+	"language": {
+		"selector": "اللغة",
+		"english": "English",
+		"spanish": "Español",
+		"french": "Français",
+		"italian": "Italiano",
+		"portuguese": "Português",
+		"german": "Deutsch",
+		"japanese": "日本語",
+		"korean": "한국어",
+		"chinese": "中文",
+		"russian": "Русский",
+		"arabic": "العربية"
+	},
+	"connectionStatus": {
+		"usbReceiver": "متصل بمستقبل USB",
+		"tracker": "متصل بـ madTracker"
+	}
+}

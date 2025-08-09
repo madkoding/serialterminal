@@ -1,0 +1,77 @@
+{
+	"app": {
+		"title": "シリアルターミナル",
+		"toasts": {
+			"connected": "接続しました 🚀",
+			"disconnected": "接続が失われました 🙀",
+			"historyCleared": "履歴をクリアしました 🧹",
+			"settingsSaved": "設定を保存しました ✨"
+		}
+	},
+	"header": {
+		"title": "シリアルターミナル",
+		"moreTools": "その他のツール"
+	},
+	"home": {
+		"connect": "接続",
+		"instructions": {
+			"step1": "1. 接続をクリック",
+			"step2": "2. デバイスを接続してポートを選択",
+			"step3": "3. シリアルターミナルをお楽しみください 😊"
+		},
+		"browserNotSupported": {
+			"title": "お使いのブラウザはWeb Serialに対応していません 😭",
+			"tryUsing": "次のブラウザをお試しください",
+			"chrome": "Chrome",
+			"edge": "Edge",
+			"opera": "Opera",
+			"mobileNotSupported": "(iOSとAndroidブラウザは対応していません)",
+			"learnMore": "詳しく学ぶ",
+			"browserCompatibility": "ブラウザの互換性"
+		}
+	},
+	"terminal": {
+		"input": "入力",
+		"send": "送信",
+		"history": "履歴"
+	},
+	"settings": {
+		"title": "設定",
+		"serialConnection": "シリアル接続",
+		"baudRate": "ボーレート",
+		"baudRateReconnect": "ボーレート（再接続が必要）",
+		"lineEnding": "行末文字",
+		"showInput": "入力を表示（エコー）",
+		"showTimestamps": "タイムスタンプを表示",
+		"detectCtrl": "CTRL+C、CTRL+Dを検出",
+		"buttons": {
+			"reset": "リセット",
+			"cancel": "キャンセル",
+			"save": "保存"
+		}
+	},
+	"error": {
+		"connectionFailed": "接続に失敗しました",
+		"somethingWentWrong": "何かが間違っているようです 😢",
+		"recommendChrome": "最新バージョンの使用をお勧めします",
+		"forDesktop": "デスクトップ版。",
+		"close": "閉じる"
+	},
+	"footer": {
+		"madeWith": "❤️ で作成 by"
+	},
+	"language": {
+		"selector": "言語",
+		"english": "English",
+		"spanish": "Español",
+		"french": "Français",
+		"italian": "Italiano",
+		"portuguese": "Português",
+		"german": "Deutsch",
+		"japanese": "日本語"
+	},
+	"connectionStatus": {
+		"usbReceiver": "USBレシーバーに接続",
+		"tracker": "madTrackerに接続"
+	}
+}
