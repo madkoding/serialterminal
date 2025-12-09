@@ -4,6 +4,8 @@
 		"toasts": {
 			"connected": "Connected 🚀",
 			"disconnected": "Lost connection 🙀",
+			"reconnecting": "Reconnecting... ({{attempt}}/{{maxAttempts}}) 🔄",
+			"reconnectFailed": "Reconnection failed after maximum attempts ❌",
 			"historyCleared": "History cleared 🧹",
 			"settingsSaved": "Settings saved ✨"
 		}
@@ -33,6 +35,7 @@
 	"terminal": {
 		"input": "Input",
 		"send": "Send",
+		"reconnect": "Reconnect",
 		"history": "History"
 	},
 	"settings": {

@@ -51,6 +51,9 @@ function App() {
   // Connection Flag
   const [connected, setConnected] = React.useState(false)
 
+  // Flag to track if terminal has been opened at least once (to preserve buffer on disconnect)
+  const [terminalOpened, setTerminalOpened] = React.useState(false)
+
   // Connection Type (receiver, tracker, or null)
   const [connectionType, setConnectionType] = React.useState(null)
 
@@ -89,6 +92,7 @@ function App() {
 
     serial.onSuccess = () => {
       setConnected(true)
+      setTerminalOpened(true)
       setToast({ open: true, severity: 'success', value: t('app.toasts.connected') })
     }
 
@@ -96,6 +100,15 @@ function App() {
       setConnected(false)
       setConnectionType(null)
       setToast({ open: true, severity: 'error', value: t('app.toasts.disconnected') })
+    }
+
+    serial.onReconnecting = (attempt, maxAttempts) => {
+      setConnected(false)
+      setToast({ open: true, severity: 'warning', value: t('app.toasts.reconnecting', { attempt, maxAttempts }) })
+    }
+
+    serial.onReconnectFailed = () => {
+      setToast({ open: true, severity: 'error', value: t('app.toasts.reconnectFailed') })
     }
 
     serial.onReceive = (value) => {
@@ -158,7 +171,7 @@ function App() {
       {connected && <ConnectionStatus connectionType={connectionType} />}
 
       {/* Homepage or Terminal */}
-      {connected ?
+      {(connected || terminalOpened) ?
         <Terminal
           received={received}
           send={handleSend}
@@ -168,6 +181,8 @@ function App() {
           time={settings.timeFlag}
           ctrl={settings.ctrlFlag}
           clearToast={() => setToast({ open: true, severity: 'info', value: t('app.toasts.historyCleared') })}
+          connected={connected}
+          connect={connect}
         />
         :
         <Home

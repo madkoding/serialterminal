@@ -36,8 +36,8 @@ const TerminalInput = (props) => {
                     onChange={(e) => props.setInput(e.target.value)}
                     value={props.input}
                     fullWidth
-                    onKeyDown={(e) => e.key === 'Enter' && props.send()}
-                    //disabled={disableSend}
+                    onKeyDown={(e) => e.key === 'Enter' && !props.disabled && props.send()}
+                    disabled={props.disabled}
                     autoComplete='off'
                     autoFocus
                     inputRef={inputFocus}
@@ -79,22 +79,40 @@ const TerminalInput = (props) => {
             <Grid item sx={{
                 width: '8rem',
             }}>
-                <Button sx={{
-                    height: 56,
-                    color: '#fff',
-                    '&.Mui-disabled': {
-                        color: '#aaa'
-                    },
-                    '&.MuiButtonGroup-groupedTextHorizontal:not(:last-child)': {
-                        borderColor: '#777'
-                    }
-                }}
-                    variant='contained'
-                    disableElevation
-                    onClick={() => props.send()}
-                    //disabled={disableSend}
-                    fullWidth
-                >{t('terminal.send')}</Button>
+                {props.disabled ? (
+                    <Button sx={{
+                        height: 56,
+                        color: '#fff',
+                        backgroundColor: '#d32f2f',
+                        '&:hover': {
+                            backgroundColor: '#b71c1c'
+                        },
+                        '&.MuiButtonGroup-groupedTextHorizontal:not(:last-child)': {
+                            borderColor: '#777'
+                        }
+                    }}
+                        variant='contained'
+                        disableElevation
+                        onClick={() => props.connect()}
+                        fullWidth
+                    >{t('terminal.reconnect')}</Button>
+                ) : (
+                    <Button sx={{
+                        height: 56,
+                        color: '#fff',
+                        '&.Mui-disabled': {
+                            color: '#aaa'
+                        },
+                        '&.MuiButtonGroup-groupedTextHorizontal:not(:last-child)': {
+                            borderColor: '#777'
+                        }
+                    }}
+                        variant='contained'
+                        disableElevation
+                        onClick={() => props.send()}
+                        fullWidth
+                    >{t('terminal.send')}</Button>
+                )}
             </Grid>
         </Grid>
     )
@@ -104,6 +122,8 @@ TerminalInput.propTypes = {
     input: PropTypes.string,
     setInput: PropTypes.func,
     send: PropTypes.func,
+    disabled: PropTypes.bool,
+    connect: PropTypes.func,
 }
 
 export default TerminalInput

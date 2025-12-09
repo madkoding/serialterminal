@@ -90,6 +90,8 @@ const Terminal = (props) => {
                     input={input}
                     setInput={setInput}
                     send={handleSend}
+                    disabled={!props.connected}
+                    connect={props.connect}
                 />
             </Grid>
         </Grid>
@@ -105,6 +107,8 @@ Terminal.propTypes = {
     time: PropTypes.bool,
     ctrl: PropTypes.bool,
     clearToast: PropTypes.func,
+    connected: PropTypes.bool,
+    connect: PropTypes.func,
 }
 
 export default Terminal
