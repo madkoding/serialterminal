@@ -56,6 +56,7 @@
 		"serialConnection": "Conexión Serial",
 		"colorScheme": "Esquema de color",
 		"colorSchemeDescription": "Elige un tema de color para la terminal",
+		"language": "Idioma",
 		"baudRate": "Velocidad de Baudios",
 		"baudRateReconnect": "Velocidad de Baudios (Requiere Reconexión)",
 		"lineEnding": "Final de Línea",

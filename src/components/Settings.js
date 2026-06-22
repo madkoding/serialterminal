@@ -19,6 +19,7 @@ import Box from '@mui/material/Box'
 import Tooltip from '@mui/material/Tooltip'
 
 import { v, fonts, themeSchemes } from '../theme'
+import LanguageSelector from './LanguageSelector'
 
 const baudrates = [
     300, 1200, 2400, 4800, 9600, 19200, 38400, 57600, 74880,
@@ -209,6 +210,12 @@ const Settings = (props) => {
                     <Typography sx={{ fontFamily: fonts.ui, fontSize: '0.75rem', color: v('text-muted', '#8b949e'), mb: 1.5 }}>
                         {t('settings.colorSchemeDescription')}
                     </Typography>
+
+                    <Typography sx={sectionHeaderSx}>{t('settings.language')}</Typography>
+
+                    <Box sx={{ mb: 2 }}>
+                        <LanguageSelector />
+                    </Box>
 
                     <Typography sx={sectionHeaderSx}>{t('settings.display')}</Typography>
 

@@ -7,7 +7,6 @@ import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import IconButton from '@mui/material/IconButton'
 import SettingsIcon from '@mui/icons-material/Settings'
-import LanguageSelector from './LanguageSelector'
 import ConnectionStatus from './ConnectionStatus'
 import { v, fonts } from '../theme'
 
@@ -58,8 +57,6 @@ const Header = ({ connectionType, connectionState, reconnectAttempt, reconnectMa
                         compact
                     />
                 )}
-
-                <LanguageSelector />
 
                 <IconButton
                     size='small'
