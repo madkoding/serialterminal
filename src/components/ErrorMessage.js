@@ -10,20 +10,31 @@ import DialogContentText from '@mui/material/DialogContentText'
 import DialogTitle from '@mui/material/DialogTitle'
 import Typography from '@mui/material/Typography'
 import ChromeIcon from '../icons/Chrome'
+import { v, fonts } from '../theme'
 
 const ErrorMessage = (props) => {
     const { t } = useTranslation()
 
     return (
-        <Dialog open={props.open} onClose={props.close}>
-            <DialogTitle>{t('error.connectionFailed')}</DialogTitle>
+        <Dialog
+            open={props.open}
+            onClose={props.close}
+            PaperProps={{
+                sx: {
+                    backgroundColor: v('bg-1', '#161b22'),
+                    border: `1px solid ${v('border', '#30363d')}`,
+                    color: v('text', '#d4d4d4'),
+                }
+            }}
+        >
+            <DialogTitle sx={{ fontFamily: fonts.ui, fontSize: '1rem' }}>{t('error.connectionFailed')}</DialogTitle>
 
             <DialogContent>
-                <DialogContentText>
+                <DialogContentText sx={{ color: v('text-muted', '#8b949e'), fontFamily: fonts.ui, fontSize: '0.85rem' }}>
                     {props.message}
                 </DialogContentText>
 
-                <Typography sx={{ mt: 2 }}>
+                <Typography sx={{ mt: 2, color: v('text-muted', '#8b949e'), fontFamily: fonts.ui, fontSize: '0.82rem' }}>
                     {t('error.somethingWentWrong')}<br />
                     {t('error.recommendChrome')}&nbsp;
                     <a href='https://www.google.com/chrome/' target='blank'>
@@ -33,7 +44,12 @@ const ErrorMessage = (props) => {
             </DialogContent>
 
             <DialogActions>
-                <Button onClick={props.close} color='primary'>{t('error.close')}</Button>
+                <Button
+                    onClick={props.close}
+                    sx={{ color: v('accent', '#0db4d6'), fontFamily: fonts.ui, fontSize: '0.82rem' }}
+                >
+                    {t('error.close')}
+                </Button>
             </DialogActions>
         </Dialog>
     )

@@ -14,6 +14,7 @@ export default class Serial {
         this.reader = undefined
 
         this.port = undefined
+        this.portIdentity = null
 
         this.outputStream = undefined
         this.inputStream = undefined
@@ -22,7 +23,8 @@ export default class Serial {
 
         // Auto-reconnect settings
         this.maxReconnectAttempts = 20
-        this.reconnectInterval = 3000 // 3 seconds (20 attempts in 1 minute)
+        this.reconnectInterval = 3000
+        this.backoffEnabled = true
         this.reconnectAttempts = 0
         this.reconnectTimer = null
     }
@@ -37,28 +39,8 @@ export default class Serial {
         this.reconnectAttempts = 0
         this.clearReconnectTimer()
 
-        /*
-        navigator.serial.addEventListener('connect', (e) => {
-            this.port = e.port || e.target
-            this.openPort()
-        })
-
-        navigator.serial.addEventListener('disconnect', () => {
-            console.warn(`[SERIAL] Disconnected!`)
-            this.onFail()
-        })
-        */
-
-        // Filter on devices with the Arduino Uno USB Vendor/Product IDs
-        const filters = [
-            //{ usbVendorId: 0x2341, usbProductId: 0x0043 },
-            //{ usbVendorId: 0x2341, usbProductId: 0x0001 }
-        ]
-
-        // Prompt user to select a serial port
         try {
-            this.port = await navigator.serial.requestPort({ filters })
-            //await port.open({ baudRate: 115200 })
+            this.port = await navigator.serial.requestPort({ filters: [] })
         } catch (e) {
             console.error(e)
             return `${e}`
@@ -77,7 +59,19 @@ export default class Serial {
 
         console.log(`[SERIAL] Connected`)
 
-        // Reset reconnect attempts on successful connection
+        // Save port identity for smart reconnection
+        try {
+            const info = this.port.getInfo()
+            this.portIdentity = {
+                usbVendorId: info.usbVendorId,
+                usbProductId: info.usbProductId,
+            }
+            console.log(`[SERIAL] Port identity: vendor=${info.usbVendorId}, product=${info.usbProductId}`)
+        } catch (e) {
+            this.portIdentity = null
+            console.warn('[SERIAL] Could not get port info:', e)
+        }
+
         this.reconnectAttempts = 0
         this.clearReconnectTimer()
 
@@ -98,20 +92,17 @@ export default class Serial {
     }
 
     handleDisconnect() {
-        // Prevent multiple disconnect handlers
         if (!this.open && this.reconnectAttempts > 0) {
             return
         }
-        
+
         this.open = false
-        
-        // If it was an intentional close, don't try to reconnect
+
         if (this.intentionalClose) {
             this.onFail()
             return
         }
 
-        // Try to reconnect automatically
         if (this.reconnectAttempts < this.maxReconnectAttempts) {
             this.scheduleReconnect()
         } else {
@@ -124,41 +115,62 @@ export default class Serial {
     scheduleReconnect() {
         this.clearReconnectTimer()
         this.reconnectAttempts++
-        
-        console.log(`[SERIAL] Scheduling reconnect attempt ${this.reconnectAttempts}/${this.maxReconnectAttempts} in ${this.reconnectInterval / 1000}s`)
-        this.onReconnecting(this.reconnectAttempts, this.maxReconnectAttempts)
-        
+
+        let delay = this.reconnectInterval
+        if (this.backoffEnabled) {
+            delay = Math.min(this.reconnectInterval * Math.pow(2, this.reconnectAttempts - 1), 15000)
+        }
+
+        console.log(`[SERIAL] Scheduling reconnect attempt ${this.reconnectAttempts}/${this.maxReconnectAttempts} in ${delay}ms`)
+        this.onReconnecting(this.reconnectAttempts, this.maxReconnectAttempts, delay)
+
         this.reconnectTimer = setTimeout(async () => {
             await this.attemptReconnect()
-        }, this.reconnectInterval)
+        }, delay)
     }
 
     async attemptReconnect() {
         console.log(`[SERIAL] Attempting reconnect ${this.reconnectAttempts}/${this.maxReconnectAttempts}...`)
 
         try {
-            // First, try to close any existing connection
             await this.cleanupConnection()
 
-            // Try to get previously authorized ports
             const ports = await navigator.serial.getPorts()
-            
-            if (ports.length > 0) {
-                // Use the first available port (or the same one if still in list)
-                this.port = ports.find(p => p === this.port) || ports[0]
-                
-                // Try to reopen the port
+
+            // Try to find the same port by USB vendor/product ID
+            let matchedPort = null
+            if (this.portIdentity) {
+                for (const p of ports) {
+                    try {
+                        const info = p.getInfo()
+                        if (info.usbVendorId === this.portIdentity.usbVendorId &&
+                            info.usbProductId === this.portIdentity.usbProductId) {
+                            matchedPort = p
+                            console.log(`[SERIAL] Found matching port by identity`)
+                            break
+                        }
+                    } catch (e) {
+                        // Skip ports we can't query
+                    }
+                }
+            }
+
+            if (!matchedPort && this.portIdentity) {
+                // Try to find by reference as fallback
+                matchedPort = ports.find(p => p === this.port)
+            }
+
+            if (matchedPort) {
+                this.port = matchedPort
                 const result = await this.openPort()
                 if (result === '') {
                     console.log(`[SERIAL] Reconnected successfully!`)
                     return
                 }
             }
-            
-            // If we get here, reconnection failed
-            console.warn(`[SERIAL] Reconnect attempt ${this.reconnectAttempts} failed`)
-            
-            // Schedule next attempt if we haven't reached max
+
+            console.warn(`[SERIAL] Reconnect attempt ${this.reconnectAttempts} failed - matching port not found`)
+
             if (this.reconnectAttempts < this.maxReconnectAttempts) {
                 this.scheduleReconnect()
             } else {
@@ -168,8 +180,7 @@ export default class Serial {
             }
         } catch (e) {
             console.error(`[SERIAL] Reconnect attempt failed:`, e)
-            
-            // Schedule next attempt if we haven't reached max
+
             if (this.reconnectAttempts < this.maxReconnectAttempts) {
                 this.scheduleReconnect()
             } else {
@@ -181,9 +192,9 @@ export default class Serial {
 
     async cleanupConnection() {
         try {
-            await this.reader?.cancel().catch(() => {})
-            await this.readableStreamClosed?.catch(() => {})
-            
+            await this.reader?.cancel().catch(() => { })
+            await this.readableStreamClosed?.catch(() => { })
+
             if (this.port) {
                 try {
                     await this.port.close()
@@ -213,22 +224,19 @@ export default class Serial {
                 while (true && this.open) {
                     const { value, done } = await this.reader.read()
                     if (done) {
-                        // |reader| has been canceled.
                         break
                     }
                     if (value) this.onReceive(value)
                 }
             } catch (error) {
-                // Handle |error|...
                 console.error('[SERIAL] Read error:', error)
                 if (!this.intentionalClose) {
                     this.handleDisconnect()
-                    return // Exit without calling closePort, let reconnect handle it
+                    return
                 }
             }
         }
-        
-        // Only close port if it was intentional or we exited normally
+
         if (this.intentionalClose) {
             await this.closePort()
         }
@@ -242,18 +250,10 @@ export default class Serial {
 
         writer.write(encoder.encode(value))
         writer.releaseLock()
-        /*sendMessage(value, this.outputStream)
-
-        const textEncoder = new window.TextEncoderStream()
-        textEncoder.readable.pipeTo(this.outputStream)
-        const writer = textEncoder.writable.getWriter()
-
-        await writer.write(value)
-        writer.releaseLock()*/
     }
 
     async sendByte(value) {
-        const writer =  this.outputStream.getWriter()
+        const writer = this.outputStream.getWriter()
 
         const data = new Uint8Array([value])
         await writer.write(data)
@@ -271,8 +271,8 @@ export default class Serial {
         if (this.open) {
             this.open = false
 
-            await this.reader?.cancel().catch(() => { /* Ignore the error */ })
-            await this.readableStreamClosed?.catch(() => { /* Ignore the error */ })
+            await this.reader?.cancel().catch(() => { })
+            await this.readableStreamClosed?.catch(() => { })
 
             try {
                 await this.port?.close()
@@ -286,5 +286,11 @@ export default class Serial {
 
     setBaudRate(newBaudRate) {
         this.baudRate = newBaudRate
+    }
+
+    setReconnectOptions({ maxAttempts, interval, backoff }) {
+        if (maxAttempts !== undefined) this.maxReconnectAttempts = maxAttempts
+        if (interval !== undefined) this.reconnectInterval = interval
+        if (backoff !== undefined) this.backoffEnabled = backoff
     }
 }

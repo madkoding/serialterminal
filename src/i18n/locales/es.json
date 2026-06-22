@@ -5,9 +5,11 @@
 			"connected": "Conectado 🚀",
 			"disconnected": "Conexión perdida 🙀",
 			"reconnecting": "Reconectando... ({{attempt}}/{{maxAttempts}}) 🔄",
+			"reconnectingWithDelay": "Reconectando... ({{attempt}}/{{maxAttempts}}, reintento en {{seconds}}s) 🔄",
 			"reconnectFailed": "Reconexión fallida después de máximos intentos ❌",
 			"historyCleared": "Historial borrado 🧹",
-			"settingsSaved": "Configuración guardada ✨"
+			"settingsSaved": "Configuración guardada ✨",
+			"restoredSession": "Restauradas {{count}} líneas de la sesión anterior 📋"
 		}
 	},
 	"header": {
@@ -36,17 +38,39 @@
 		"input": "Entrada",
 		"send": "Enviar",
 		"reconnect": "Reconectar",
-		"history": "Historial"
+		"history": "Historial",
+		"toolbar": {
+			"clear": "Limpiar historial",
+			"pause": "Pausar auto-scroll",
+			"resume": "Reanudar auto-scroll",
+			"search": "Buscar (Ctrl+F)",
+			"export": "Exportar log",
+			"settings": "Configuración"
+		},
+		"searchPlaceholder": "Buscar...",
+		"scrollToBottom": "Ir al final",
+		"paused": "● PAUSADO"
 	},
 	"settings": {
 		"title": "Configuración",
 		"serialConnection": "Conexión Serial",
+		"colorScheme": "Esquema de color",
+		"colorSchemeDescription": "Elige un tema de color para la terminal",
 		"baudRate": "Velocidad de Baudios",
 		"baudRateReconnect": "Velocidad de Baudios (Requiere Reconexión)",
 		"lineEnding": "Final de Línea",
 		"showInput": "Mostrar entrada (eco)",
 		"showTimestamps": "Mostrar marcas de tiempo",
 		"detectCtrl": "Detectar CTRL+C, CTRL+D",
+		"display": "Visualización",
+		"crtTheme": "Tema CRT de terminal",
+		"maxLines": "Máx. líneas en buffer",
+		"reconnection": "Reconexión",
+		"autoReconnect": "Auto-reconectar",
+		"backoffEnabled": "Backoff exponencial",
+		"reconnectInterval": "Intervalo de reconexión",
+		"storage": "Almacenamiento",
+		"persistLog": "Persistir log entre sesiones",
 		"buttons": {
 			"reset": "Restablecer",
 			"cancel": "Cancelar",
@@ -80,6 +104,9 @@
 	},
 	"connectionStatus": {
 		"usbReceiver": "Conectado a Receptor USB",
-		"tracker": "Conectado a madTracker"
+		"tracker": "Conectado a madTracker",
+		"connected": "Conectado",
+		"disconnected": "Desconectado",
+		"reconnectingCountdown": "Reconectando ({{attempt}}/{{maxAttempts}}) - reintento en {{seconds}}s"
 	}
 }

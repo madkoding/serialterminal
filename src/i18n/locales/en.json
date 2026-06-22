@@ -5,9 +5,11 @@
 			"connected": "Connected 🚀",
 			"disconnected": "Lost connection 🙀",
 			"reconnecting": "Reconnecting... ({{attempt}}/{{maxAttempts}}) 🔄",
+			"reconnectingWithDelay": "Reconnecting... ({{attempt}}/{{maxAttempts}}, retry in {{seconds}}s) 🔄",
 			"reconnectFailed": "Reconnection failed after maximum attempts ❌",
 			"historyCleared": "History cleared 🧹",
-			"settingsSaved": "Settings saved ✨"
+			"settingsSaved": "Settings saved ✨",
+			"restoredSession": "Restored {{count}} lines from previous session 📋"
 		}
 	},
 	"header": {
@@ -36,17 +38,39 @@
 		"input": "Input",
 		"send": "Send",
 		"reconnect": "Reconnect",
-		"history": "History"
+		"history": "History",
+		"toolbar": {
+			"clear": "Clear history",
+			"pause": "Pause auto-scroll",
+			"resume": "Resume auto-scroll",
+			"search": "Search (Ctrl+F)",
+			"export": "Export log",
+			"settings": "Settings"
+		},
+		"searchPlaceholder": "Search...",
+		"scrollToBottom": "Scroll to bottom",
+		"paused": "● PAUSED"
 	},
 	"settings": {
 		"title": "Settings",
 		"serialConnection": "Serial Connection",
+		"colorScheme": "Color Scheme",
+		"colorSchemeDescription": "Choose a color theme for the terminal",
 		"baudRate": "Baud Rate",
 		"baudRateReconnect": "Baud Rate (Requires Reconnect)",
 		"lineEnding": "Line Ending",
 		"showInput": "Show input (echo)",
 		"showTimestamps": "Show timestamps",
 		"detectCtrl": "Detect CTRL+C, CTRL+D",
+		"display": "Display",
+		"crtTheme": "CRT terminal theme",
+		"maxLines": "Max buffer lines",
+		"reconnection": "Reconnection",
+		"autoReconnect": "Auto-reconnect",
+		"backoffEnabled": "Exponential backoff",
+		"reconnectInterval": "Reconnect interval",
+		"storage": "Storage",
+		"persistLog": "Persist log between sessions",
 		"buttons": {
 			"reset": "Reset",
 			"cancel": "Cancel",
@@ -80,6 +104,9 @@
 	},
 	"connectionStatus": {
 		"usbReceiver": "Connected to USB Receiver",
-		"tracker": "Connected to madTracker"
+		"tracker": "Connected to madTracker",
+		"connected": "Connected",
+		"disconnected": "Disconnected",
+		"reconnectingCountdown": "Reconnecting ({{attempt}}/{{maxAttempts}}) - retry in {{seconds}}s"
 	}
 }

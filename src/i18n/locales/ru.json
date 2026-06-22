@@ -4,8 +4,12 @@
 		"toasts": {
 			"connected": "Подключено 🚀",
 			"disconnected": "Соединение потеряно 🙀",
+			"reconnecting": "Переподключение... ({{attempt}}/{{maxAttempts}}) 🔄",
+			"reconnectingWithDelay": "Переподключение... ({{attempt}}/{{maxAttempts}}, повтор через {{seconds}}с) 🔄",
+			"reconnectFailed": "Переподключение не удалось после максимального количества попыток ❌",
 			"historyCleared": "История очищена 🧹",
-			"settingsSaved": "Настройки сохранены ✨"
+			"settingsSaved": "Настройки сохранены ✨",
+			"restoredSession": "Восстановлено {{count}} строк из предыдущей сессии 📋"
 		}
 	},
 	"header": {
@@ -33,17 +37,40 @@
 	"terminal": {
 		"input": "Ввод",
 		"send": "Отправить",
-		"history": "История"
+		"reconnect": "Переподключиться",
+		"history": "История",
+		"toolbar": {
+			"clear": "Очистить историю",
+			"pause": "Пауза автопрокрутки",
+			"resume": "Возобновить автопрокрутку",
+			"search": "Поиск (Ctrl+F)",
+			"export": "Экспорт лога",
+			"settings": "Настройки"
+		},
+		"searchPlaceholder": "Поиск...",
+		"scrollToBottom": "Перейти в конец",
+		"paused": "● ПАУЗА"
 	},
 	"settings": {
 		"title": "Настройки",
 		"serialConnection": "Последовательное Соединение",
+		"colorScheme": "Цветовая схема",
+		"colorSchemeDescription": "Выберите цветовую тему для терминала",
 		"baudRate": "Скорость Передачи",
 		"baudRateReconnect": "Скорость Передачи (Требует Переподключения)",
 		"lineEnding": "Окончание Строки",
 		"showInput": "Показать ввод (эхо)",
 		"showTimestamps": "Показать временные метки",
 		"detectCtrl": "Обнаружить CTRL+C, CTRL+D",
+		"display": "Отображение",
+		"crtTheme": "Тема CRT терминала",
+		"maxLines": "Макс. строк в буфере",
+		"reconnection": "Переподключение",
+		"autoReconnect": "Автопереподключение",
+		"backoffEnabled": "Экспоненциальная задержка",
+		"reconnectInterval": "Интервал переподключения",
+		"storage": "Хранилище",
+		"persistLog": "Сохранять лог между сессиями",
 		"buttons": {
 			"reset": "Сбросить",
 			"cancel": "Отмена",
@@ -75,6 +102,9 @@
 	},
 	"connectionStatus": {
 		"usbReceiver": "Подключено к USB-приемнику",
-		"tracker": "Подключено к madTracker"
+		"tracker": "Подключено к madTracker",
+		"connected": "Подключено",
+		"disconnected": "Отключено",
+		"reconnectingCountdown": "Переподключение ({{attempt}}/{{maxAttempts}}) - повтор через {{seconds}}с"
 	}
 }

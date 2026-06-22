@@ -4,8 +4,12 @@
 		"toasts": {
 			"connected": "Verbunden 🚀",
 			"disconnected": "Verbindung verloren 🙀",
+			"reconnecting": "Wiederverbinde... ({{attempt}}/{{maxAttempts}}) 🔄",
+			"reconnectingWithDelay": "Wiederverbinde... ({{attempt}}/{{maxAttempts}}, erneuter Versuch in {{seconds}}s) 🔄",
+			"reconnectFailed": "Wiederherstellung nach maximalen Versuchen fehlgeschlagen ❌",
 			"historyCleared": "Verlauf gelöscht 🧹",
-			"settingsSaved": "Einstellungen gespeichert ✨"
+			"settingsSaved": "Einstellungen gespeichert ✨",
+			"restoredSession": "{{count}} Zeilen aus vorheriger Sitzung wiederhergestellt 📋"
 		}
 	},
 	"header": {
@@ -33,17 +37,40 @@
 	"terminal": {
 		"input": "Eingabe",
 		"send": "Senden",
-		"history": "Verlauf"
+		"reconnect": "Wiederverbinden",
+		"history": "Verlauf",
+		"toolbar": {
+			"clear": "Verlauf löschen",
+			"pause": "Auto-Scroll pausieren",
+			"resume": "Auto-Scroll fortsetzen",
+			"search": "Suchen (Ctrl+F)",
+			"export": "Log exportieren",
+			"settings": "Einstellungen"
+		},
+		"searchPlaceholder": "Suchen...",
+		"scrollToBottom": "Zum Ende scrollen",
+		"paused": "● PAUSIERT"
 	},
 	"settings": {
 		"title": "Einstellungen",
 		"serialConnection": "Serielle Verbindung",
+		"colorScheme": "Farbschema",
+		"colorSchemeDescription": "Wählen Sie ein Farbthema für das Terminal",
 		"baudRate": "Baudrate",
 		"baudRateReconnect": "Baudrate (Erfordert Neuverbindung)",
 		"lineEnding": "Zeilenende",
 		"showInput": "Eingabe anzeigen (Echo)",
 		"showTimestamps": "Zeitstempel anzeigen",
 		"detectCtrl": "CTRL+C, CTRL+D erkennen",
+		"display": "Anzeige",
+		"crtTheme": "CRT Terminal-Design",
+		"maxLines": "Max. Pufferzeilen",
+		"reconnection": "Wiederverbindung",
+		"autoReconnect": "Auto-Wiederverbindung",
+		"backoffEnabled": "Exponentieller Backoff",
+		"reconnectInterval": "Wiederverbindungsintervall",
+		"storage": "Speicher",
+		"persistLog": "Log zwischen Sitzungen speichern",
 		"buttons": {
 			"reset": "Zurücksetzen",
 			"cancel": "Abbrechen",
@@ -71,6 +98,9 @@
 	},
 	"connectionStatus": {
 		"usbReceiver": "Mit USB-Empfänger verbunden",
-		"tracker": "Mit madTracker verbunden"
+		"tracker": "Mit madTracker verbunden",
+		"connected": "Verbunden",
+		"disconnected": "Getrennt",
+		"reconnectingCountdown": "Wiederverbinden ({{attempt}}/{{maxAttempts}}) - erneuter Versuch in {{seconds}}s"
 	}
 }

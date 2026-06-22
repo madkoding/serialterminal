@@ -11,70 +11,91 @@ import Home from './components/Home'
 import Terminal from './components/Terminal'
 import Settings from './components/Settings'
 import ErrorMessage from './components/ErrorMessage'
-import ConnectionStatus from './components/ConnectionStatus'
 
 import Serial from './modules/Serial'
 import { setCookie, getCookie } from './modules/cookie.js'
+import { applyTheme, v } from './theme'
+
+const DEFAULT_SETTINGS = {
+  baudRate: 115200,
+  lineEnding: '\\r\\n',
+  echoFlag: true,
+  timeFlag: false,
+  ctrlFlag: true,
+  maxLines: 50000,
+  persistLog: true,
+  autoReconnect: true,
+  reconnectInterval: 3000,
+  backoffEnabled: true,
+  crtTheme: false,
+  colorScheme: 'dev-tools',
+}
 
 const loadSettings = () => {
-  let settings = {
-    baudRate: 115200,
-    lineEnding: '\\r\\n',
-    echoFlag: true,
-    timeFlag: false,
-    ctrlFlag: true,
-  }
+  let settings = { ...DEFAULT_SETTINGS }
 
   const cookieValue = getCookie('settings')
 
   try {
     const cookieJSON = JSON.parse(cookieValue)
 
-    if ('baudRate' in cookieJSON) settings.baudRate = cookieJSON.baudRate
-    if ('lineEnding' in cookieJSON) settings.lineEnding = cookieJSON.lineEnding
-    if ('echoFlag' in cookieJSON) settings.echoFlag = cookieJSON.echoFlag
-    if ('timeFlag' in cookieJSON) settings.timeFlag = cookieJSON.timeFlag
-    if ('ctrlFlag' in cookieJSON) settings.ctrlFlag = cookieJSON.ctrlFlag
+    for (const key of Object.keys(DEFAULT_SETTINGS)) {
+      if (key in cookieJSON) settings[key] = cookieJSON[key]
+    }
   } catch (e) {
     console.error(e)
   }
 
-  //saveSettings(settings)
   return settings
 }
 
 function App() {
   const { t } = useTranslation()
-  // Serial Module
-  const [serial] = React.useState(new Serial())
+  const [serial] = React.useState(() => new Serial())
 
-  // Connection Flag
   const [connected, setConnected] = React.useState(false)
-
-  // Flag to track if terminal has been opened at least once (to preserve buffer on disconnect)
+  const [connectionState, setConnectionState] = React.useState('disconnected')
+  const [connectionType, setConnectionType] = React.useState(null)
   const [terminalOpened, setTerminalOpened] = React.useState(false)
 
-  // Connection Type (receiver, tracker, or null)
-  const [connectionType, setConnectionType] = React.useState(null)
+  const [reconnectInfo, setReconnectInfo] = React.useState({ attempt: 0, maxAttempts: 0, delay: 0 })
 
-  // Receive Buffer
   const [received, setReceived] = React.useState({ time: new Date(), value: '' })
 
-  // Connect/Disconnect Toast Open
   const [toast, setToast] = React.useState({ open: false, severity: 'info', value: '' })
 
-  // Settings Window Open
   const [settingsOpen, setSettingsOpen] = React.useState(false)
+  const [settings, setSettings] = React.useState(loadSettings())
 
-  // Error Window
   const [errorOpen, setErrorOpen] = React.useState(false)
   const [errorMessage, setErrorMessage] = React.useState('')
 
-  // Settings
-  const [settings, setSettings] = React.useState(loadSettings())
+  const serialRef = React.useRef(serial)
+
+  // Sync serial options when settings change
+  React.useEffect(() => {
+    const s = serialRef.current
+    s.setBaudRate(settings.baudRate)
+    s.setReconnectOptions({
+      maxAttempts: settings.autoReconnect ? 20 : 0,
+      interval: settings.reconnectInterval,
+      backoff: settings.backoffEnabled,
+    })
+  }, [settings])
+
+  // Apply theme when colorScheme changes
+  React.useEffect(() => {
+    applyTheme(settings.colorScheme)
+  }, [settings.colorScheme])
 
   const saveSettings = (newSettings) => {
-    serial.setBaudRate(newSettings.baudRate)
+    const s = serialRef.current
+    s.setBaudRate(newSettings.baudRate)
+    s.setReconnectOptions({
+      maxAttempts: newSettings.autoReconnect ? 20 : 0,
+      interval: newSettings.reconnectInterval,
+      backoff: newSettings.backoffEnabled,
+    })
     setSettings(newSettings)
     setCookie('settings', JSON.stringify(newSettings), 365)
   }
@@ -84,51 +105,57 @@ function App() {
   }
 
   const connect = () => {
-    if (!serial.supported()) {
-      //setNoSupportOpen(true)
+    const s = serialRef.current
+
+    if (!s.supported()) {
       console.error(`Serial not supported`)
       return
     }
 
-    serial.onSuccess = () => {
+    s.onSuccess = () => {
       setConnected(true)
+      setConnectionState('connected')
       setTerminalOpened(true)
       setToast({ open: true, severity: 'success', value: t('app.toasts.connected') })
     }
 
-    serial.onFail = () => {
+    s.onFail = () => {
       setConnected(false)
+      setConnectionState('disconnected')
       setConnectionType(null)
       setToast({ open: true, severity: 'error', value: t('app.toasts.disconnected') })
     }
 
-    serial.onReconnecting = (attempt, maxAttempts) => {
+    s.onReconnecting = (attempt, maxAttempts, delay) => {
       setConnected(false)
-      setToast({ open: true, severity: 'warning', value: t('app.toasts.reconnecting', { attempt, maxAttempts }) })
+      setConnectionState('reconnecting')
+      setReconnectInfo({ attempt, maxAttempts, delay })
+      setToast({
+        open: true,
+        severity: 'warning',
+        value: t('app.toasts.reconnectingWithDelay', { attempt, maxAttempts, seconds: Math.ceil(delay / 1000) }),
+      })
     }
 
-    serial.onReconnectFailed = () => {
+    s.onReconnectFailed = () => {
       setToast({ open: true, severity: 'error', value: t('app.toasts.reconnectFailed') })
     }
 
-    serial.onReceive = (value) => {
+    s.onReceive = (value) => {
       setReceived({
         time: new Date(),
         value: `${value}`,
       })
-      
-      // Detect connection type based on received content
+
       const receivedString = `${value}`.toLowerCase()
       if (receivedString.includes('slimevr slimenrf receiver')) {
         setConnectionType('receiver')
       } else if (receivedString.includes('slimevr slimenrf tracker')) {
         setConnectionType('tracker')
       }
-      
-      //console.log(value)
     }
 
-    serial.requestPort().then(res => {
+    s.requestPort().then(res => {
       if (res !== '') {
         setErrorMessage(res)
         setErrorOpen(true)
@@ -143,12 +170,11 @@ function App() {
       '\\n': '\n',
       '\\r\\n': '\r\n',
     }
-
-    serial.send(`${str}${map[settings.lineEnding]}`)
+    serialRef.current.send(`${str}${map[settings.lineEnding]}`)
   }
 
   const handleRawSend = (byte) => {
-    serial.sendByte(byte)
+    serialRef.current.sendByte(byte)
   }
 
   React.useEffect(() => {
@@ -162,17 +188,19 @@ function App() {
       display: 'flex',
       flexDirection: 'column',
       minHeight: '100vh',
-      background: 'linear-gradient(135deg, rgb(0, 0, 0) 0%, rgb(47, 44, 49) 100%)',
+      backgroundColor: v('bg-0', '#0d1117'),
     }}>
-      {/* Header */}
-      <Header />
+      <Header
+        connectionType={connectionType}
+        connectionState={connectionState}
+        reconnectAttempt={reconnectInfo.attempt}
+        reconnectMaxAttempts={reconnectInfo.maxAttempts}
+        reconnectDelay={reconnectInfo.delay}
+      />
 
-      {/* Connection Status */}
-      {connected && <ConnectionStatus connectionType={connectionType} />}
-
-      {/* Homepage or Terminal */}
       {(connected || terminalOpened) ?
-        <Terminal
+        <Box sx={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
+          <Terminal
           received={received}
           send={handleSend}
           sendRaw={handleRawSend}
@@ -181,18 +209,23 @@ function App() {
           time={settings.timeFlag}
           ctrl={settings.ctrlFlag}
           clearToast={() => setToast({ open: true, severity: 'info', value: t('app.toasts.historyCleared') })}
+          crtTheme={settings.crtTheme}
           connected={connected}
           connect={connect}
+          maxLines={settings.maxLines}
+          persistLog={settings.persistLog}
+          restoreToast={(count) => setToast({ open: true, severity: 'info', value: t('app.toasts.restoredSession', { count }) })}
+          baudRate={settings.baudRate}
         />
+        </Box>
         :
         <Home
           connect={connect}
-          supported={serial.supported}
+          supported={serialRef.current.supported}
           openSettings={() => setSettingsOpen(true)}
         />
       }
 
-      {/* Settings Window */}
       <Settings
         open={settingsOpen}
         close={() => setSettingsOpen(false)}
@@ -202,24 +235,21 @@ function App() {
         saveToast={() => setToast({ open: true, severity: 'success', value: t('app.toasts.settingsSaved') })}
       />
 
-      {/* (Dis)connected Toast */}
       <Snackbar open={toast.open} autoHideDuration={4000} onClose={closeToast}>
         <Alert onClose={closeToast} severity={toast.severity}>
           {toast.value}
         </Alert>
       </Snackbar>
 
-      {/* Error Message Window */}
       <ErrorMessage
         open={errorOpen}
         close={() => setErrorOpen(false)}
         message={errorMessage}
       />
 
-      {/* Footer */}
       <Footer />
     </Box>
-  );
+  )
 }
 
 export default App

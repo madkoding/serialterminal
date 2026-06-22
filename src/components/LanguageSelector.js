@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { FormControl, Select, MenuItem, InputLabel } from '@mui/material'
-import LanguageIcon from '@mui/icons-material/Language'
+import { FormControl, Select, MenuItem } from '@mui/material'
 
 const LanguageSelector = () => {
   const { i18n, t } = useTranslation()
@@ -53,35 +52,32 @@ const LanguageSelector = () => {
   }, [i18n])
 
   return (
-    <FormControl size="small" sx={{ minWidth: 120, mr: 2 }}>
-      <InputLabel 
-        id="language-select-label" 
-        sx={{ 
-          color: '#fff',
-          '&.Mui-focused': {
-            color: '#fff'
-          }
-        }}
-      >
-        <LanguageIcon sx={{ mr: 0.5, fontSize: 16 }} />
-      </InputLabel>
+    <FormControl size="small" sx={{ minWidth: 90, mr: 1 }}>
       <Select
-        labelId="language-select-label"
         value={currentLanguage}
         onChange={handleLanguageChange}
+        displayEmpty
+        renderValue={(value) => {
+          const lang = t(`language.${value}`)
+          return lang.length > 3 ? lang.substring(0, 3) + '…' : lang
+        }}
         sx={{
           color: '#fff',
+          fontSize: '0.75rem',
+          fontFamily: 'Inter, system-ui, sans-serif',
+          height: 28,
           '& .MuiOutlinedInput-notchedOutline': {
-            borderColor: 'rgba(255, 255, 255, 0.3)',
+            borderColor: 'rgba(255, 255, 255, 0.2)',
           },
           '&:hover .MuiOutlinedInput-notchedOutline': {
-            borderColor: 'rgba(255, 255, 255, 0.5)',
+            borderColor: 'rgba(255, 255, 255, 0.4)',
           },
           '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
             borderColor: '#fff',
           },
           '& .MuiSvgIcon-root': {
             color: '#fff',
+            fontSize: 18,
           },
         }}
       >

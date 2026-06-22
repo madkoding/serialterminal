@@ -1,52 +1,111 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
 
 import TerminalOutput from './TerminalOutput'
 import TerminalInput from './TerminalInput'
+import { saveSession, loadSession, clearSession } from '../modules/logStorage'
 
 const Terminal = (props) => {
-    // User input from input field
     const [input, setInput] = React.useState('')
-
-    // Currently receieved string
     const received = React.useRef('')
-
-    // List of received lines
     const [history, setHistory] = React.useState([])
+    const lineIdCounter = React.useRef(0)
+    const batchRef = React.useRef([])
+    const rafPending = React.useRef(false)
+    const saveTimerRef = React.useRef(null)
+    const restoredRef = React.useRef(false)
 
-    React.useEffect(
-        () => {
-            const str = `${received.current}${props.received.value}`
-            const lines = str.split('\n')
+    // Restore persisted session on mount
+    React.useEffect(() => {
+        if (props.persistLog && !restoredRef.current) {
+            restoredRef.current = true
+            loadSession().then(savedLines => {
+                if (savedLines && savedLines.length > 0) {
+                    setHistory(savedLines)
+                    // Restore the line counter past the max existing id
+                    const maxId = savedLines.reduce((max, l) => Math.max(max, l.id != null ? l.id : 0), 0)
+                    lineIdCounter.current = maxId + 1
+                    if (props.restoreToast) props.restoreToast(savedLines.length)
+                }
+            })
+        }
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-            let newReceived = str
-            const newLines = []
+    // rAF batching for incoming serial data
+    const flushBatch = React.useCallback(() => {
+        if (batchRef.current.length === 0) {
+            rafPending.current = false
+            return
+        }
 
-            if (lines.length > 1) {
-                newReceived = lines.pop()
+        const entries = batchRef.current.splice(0)
+        rafPending.current = false
 
-                lines.forEach(line => {
-                    newLines.push({
-                        type: 'output',
-                        value: `${line}`,
-                        time: props.received.time,
+        setHistory(prev => {
+            let newHistory = prev
+            for (const entry of entries) {
+                const str = `${received.current}${entry.value}`
+                const lines = str.split('\n')
+
+                let newReceived = str
+                const newLines = []
+
+                if (lines.length > 1) {
+                    newReceived = lines.pop()
+                    lines.forEach(line => {
+                        newLines.push({
+                            id: lineIdCounter.current++,
+                            type: 'output',
+                            value: `${line}`,
+                            time: entry.time,
+                        })
                     })
-                })
+
+                    const maxLines = props.maxLines || 50000
+                    newHistory = newHistory.concat(newLines)
+                    if (newHistory.length > maxLines) {
+                        newHistory = newHistory.slice(-maxLines)
+                    }
+                }
+                received.current = newReceived
             }
-            setHistory((current) => current.concat(newLines))
-            received.current = newReceived
-        },
-        [props.received],
-    )
+            return newHistory
+        })
+    }, [props.maxLines])
+
+    React.useEffect(() => {
+        if (!props.received.value) return
+        batchRef.current.push({ value: props.received.value, time: props.received.time })
+        if (!rafPending.current) {
+            rafPending.current = true
+            requestAnimationFrame(flushBatch)
+        }
+    }, [props.received, flushBatch])
+
+    // Persist history to IndexedDB (debounced)
+    React.useEffect(() => {
+        if (!props.persistLog || history.length === 0) return
+
+        if (saveTimerRef.current) clearTimeout(saveTimerRef.current)
+        saveTimerRef.current = setTimeout(() => {
+            const linesToSave = history.slice(-5000)
+            saveSession(linesToSave)
+        }, 2000)
+
+        return () => {
+            if (saveTimerRef.current) clearTimeout(saveTimerRef.current)
+        }
+    }, [history, props.persistLog])
 
     const handleSend = () => {
         props.send(input)
 
-        setHistory([
-            ...history,
+        setHistory(prev => [
+            ...prev,
             {
+                id: lineIdCounter.current++,
                 type: 'userInput',
                 value: input,
                 time: new Date(),
@@ -69,10 +128,17 @@ const Terminal = (props) => {
         }
     }
 
+    const handleClearHistory = () => {
+        setHistory([])
+        if (props.persistLog) {
+            clearSession()
+        }
+        props.clearToast()
+    }
+
     return (
-        <Grid container spacing={1} sx={{ p: .75, }} onKeyDown={handleKeyDown}>
-            { /* Terminal Window */}
-            <Grid item xs={12}>
+        <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', minHeight: 0, p: 0.75, gap: 0.5 }} onKeyDown={handleKeyDown}>
+            <Box sx={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
                 <TerminalOutput
                     history={history}
                     setHistory={setHistory}
@@ -80,21 +146,24 @@ const Terminal = (props) => {
                     openSettings={props.openSettings}
                     echo={props.echo}
                     time={props.time}
-                    clearToast={props.clearToast}
+                    crtTheme={props.crtTheme}
+                    clearToast={handleClearHistory}
                 />
-            </Grid>
+            </Box>
 
-            { /* Input Field & Send Button */}
-            <Grid item xs={12}>
+            <Box sx={{ flexShrink: 0 }}>
                 <TerminalInput
                     input={input}
                     setInput={setInput}
                     send={handleSend}
                     disabled={!props.connected}
                     connect={props.connect}
+                    baudRate={props.baudRate}
+                    ctrl={props.ctrl}
+                    crtTheme={props.crtTheme}
                 />
-            </Grid>
-        </Grid>
+            </Box>
+        </Box>
     )
 }
 
@@ -109,6 +178,11 @@ Terminal.propTypes = {
     clearToast: PropTypes.func,
     connected: PropTypes.bool,
     connect: PropTypes.func,
+    maxLines: PropTypes.number,
+    persistLog: PropTypes.bool,
+    restoreToast: PropTypes.func,
+    baudRate: PropTypes.number,
+    crtTheme: PropTypes.bool,
 }
 
 export default Terminal

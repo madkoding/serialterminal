@@ -4,8 +4,12 @@
 		"toasts": {
 			"connected": "연결됨 🚀",
 			"disconnected": "연결 끊김 🙀",
+			"reconnecting": "재연결 중... ({{attempt}}/{{maxAttempts}}) 🔄",
+			"reconnectingWithDelay": "재연결 중... ({{attempt}}/{{maxAttempts}}, {{seconds}}초 후 재시도) 🔄",
+			"reconnectFailed": "최대 시도 횟수 후 재연결 실패 ❌",
 			"historyCleared": "기록 삭제됨 🧹",
-			"settingsSaved": "설정 저장됨 ✨"
+			"settingsSaved": "설정 저장됨 ✨",
+			"restoredSession": "이전 세션에서 {{count}}줄 복원됨 📋"
 		}
 	},
 	"header": {
@@ -33,19 +37,42 @@
 	"terminal": {
 		"input": "입력",
 		"send": "전송",
-		"history": "기록"
+		"reconnect": "재연결",
+		"history": "기록",
+		"toolbar": {
+			"clear": "기록 지우기",
+			"pause": "자동 스크롤 일시정지",
+			"resume": "자동 스크롤 재개",
+			"search": "검색 (Ctrl+F)",
+			"export": "로그 내보내기",
+			"settings": "설정"
+		},
+		"searchPlaceholder": "검색...",
+		"scrollToBottom": "맨 아래로",
+		"paused": "● 일시정지됨"
 	},
 	"settings": {
 		"title": "설정",
 		"serialConnection": "시리얼 연결",
+		"colorScheme": "색상 구성표",
+		"colorSchemeDescription": "터미널의 색상 테마를 선택하세요",
 		"baudRate": "보드레이트",
 		"baudRateReconnect": "보드레이트 (재연결 필요)",
 		"lineEnding": "줄 끝",
 		"showInput": "입력 표시 (에코)",
 		"showTimestamps": "타임스탬프 표시",
 		"detectCtrl": "CTRL+C, CTRL+D 감지",
+		"display": "디스플레이",
+		"crtTheme": "CRT 터미널 테마",
+		"maxLines": "최대 버퍼 라인",
+		"reconnection": "재연결",
+		"autoReconnect": "자동 재연결",
+		"backoffEnabled": "지수 백오프",
+		"reconnectInterval": "재연결 간격",
+		"storage": "저장소",
+		"persistLog": "세션 간 로그 유지",
 		"buttons": {
-			"reset": "재설정",
+			"reset": "초기화",
 			"cancel": "취소",
 			"save": "저장"
 		}
@@ -73,6 +100,9 @@
 	},
 	"connectionStatus": {
 		"usbReceiver": "USB 수신기에 연결됨",
-		"tracker": "madTracker에 연결됨"
+		"tracker": "madTracker에 연결됨",
+		"connected": "연결됨",
+		"disconnected": "연결 끊김",
+		"reconnectingCountdown": "재연결 중 ({{attempt}}/{{maxAttempts}}) - {{seconds}}초 후 재시도"
 	}
 }

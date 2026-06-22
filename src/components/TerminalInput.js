@@ -2,37 +2,51 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useTranslation } from 'react-i18next'
 
-import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
+import Chip from '@mui/material/Chip'
 
-// Thanks https://stackoverflow.com/questions/28889826/how-to-set-focus-on-an-input-field-after-rendering
+import { v, fonts } from '../theme'
+
 const useFocus = () => {
     const htmlElRef = React.useRef(null)
     const setFocus = () => { htmlElRef.current?.focus() }
-
     return [htmlElRef, setFocus]
 }
 
 const TerminalInput = (props) => {
     const { t } = useTranslation()
-    //const [disableSend, setDisableSend] = React.useState(false)
     const [inputFocus, setInputFocus] = useFocus()
 
     React.useEffect(() => {
         setInputFocus()
-        //console.log('focused')
     }, [props.input, setInputFocus])
 
     return (
-        <Grid container spacing={0}>
-            <Grid item sx={{
-                width: 'calc(100% - 8rem)',
-                paddingRight: '.5em',
-            }}>
+        <Box sx={{ mt: 0.5 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                {props.baudRate && (
+                    <Chip
+                        label={`${props.baudRate}`}
+                        size='small'
+                        sx={{
+                            color: v('text-muted', '#8b949e'),
+                            backgroundColor: v('bg-2', '#21262d'),
+                            fontFamily: fonts.mono,
+                            fontSize: '0.7rem',
+                            height: 24,
+                            border: `1px solid ${v('border', '#30363d')}`,
+                            borderRadius: '4px',
+                            flexShrink: 0,
+                        }}
+                    />
+                )}
+
                 <TextField
                     label={t('terminal.input')}
                     variant='outlined'
+                    size='small'
                     onChange={(e) => props.setInput(e.target.value)}
                     value={props.input}
                     fullWidth
@@ -42,79 +56,87 @@ const TerminalInput = (props) => {
                     autoFocus
                     inputRef={inputFocus}
                     sx={{
+                        flex: 1,
                         '& .MuiInputBase-root': {
-                            backgroundColor: '#111',
-                            color: '#fff',
-                            fontFamily: `'Courier Prime', Courier, monospace`,
-                            fontSize: '1rem',
-                            fontVariationSettings: '"BLED" 0, "SCAN" -40',
-                            textShadow: '0 0 1px #00ffff, 0 0 3px #00ffff33, 0 0 8px #00ffff22, 0 0 15px #00ffff11',
+                            backgroundColor: v('bg-2', '#21262d'),
+                            color: v('text', '#d4d4d4'),
+                            fontFamily: fonts.mono,
+                            fontSize: '0.9rem',
+                            '& fieldset': { borderColor: v('border', '#30363d') },
+                            '&:hover fieldset': { borderColor: v('text-muted', '#8b949e') },
+                            '&.Mui-focused fieldset': { borderColor: v('accent', '#0db4d6') },
+                            caretColor: v('accent', '#0db4d6'),
                         },
                         '& .MuiInputBase-input': {
-                            color: '#fff',
-                            fontFamily: `'Courier Prime', Courier, monospace`,
-                            fontSize: '1rem',
-                            fontVariationSettings: '"BLED" 0, "SCAN" -40',
-                            textShadow: '0 0 1px #00ffff, 0 0 3px #00ffff33, 0 0 8px #00ffff22, 0 0 15px #00ffff11',
-                        },
-                        '& .MuiOutlinedInput-notchedOutline': {
-                            borderColor: '#444',
-                        },
-                        '&:hover .MuiOutlinedInput-notchedOutline': {
-                            borderColor: '#888',
-                        },
-                        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                            borderColor: '#fff',
+                            color: v('text', '#d4d4d4'),
+                            fontFamily: fonts.mono,
+                            fontSize: '0.9rem',
+                            textShadow: props.crtTheme ? `0 0 2px ${v('accent', '#0db4d6')}, 0 0 6px ${v('accent-dim', 'rgba(13,180,214,0.15)')}` : 'none',
                         },
                         '& .MuiInputLabel-root': {
-                            color: '#fff',
-                            fontSize: '1.3rem',
-                        },
-                        '& .MuiInputLabel-root.Mui-focused': {
-                            color: '#fff',
+                            color: v('text-muted', '#8b949e'),
+                            fontSize: '0.85rem',
+                            fontFamily: fonts.ui,
+                            '&.Mui-focused': {
+                                color: v('accent', '#0db4d6'),
+                            },
                         },
                     }}
                 />
-            </Grid>
-            <Grid item sx={{
-                width: '8rem',
-            }}>
+
                 {props.disabled ? (
-                    <Button sx={{
-                        height: 56,
-                        color: '#fff',
-                        backgroundColor: '#d32f2f',
-                        '&:hover': {
-                            backgroundColor: '#b71c1c'
-                        },
-                        '&.MuiButtonGroup-groupedTextHorizontal:not(:last-child)': {
-                            borderColor: '#777'
-                        }
-                    }}
-                        variant='contained'
+                    <Button
+                        variant='outlined'
                         disableElevation
                         onClick={() => props.connect()}
-                        fullWidth
-                    >{t('terminal.reconnect')}</Button>
-                ) : (
-                    <Button sx={{
-                        height: 56,
-                        color: '#fff',
-                        '&.Mui-disabled': {
-                            color: '#aaa'
-                        },
-                        '&.MuiButtonGroup-groupedTextHorizontal:not(:last-child)': {
-                            borderColor: '#777'
+                        startIcon={
+                            <Box component='span' sx={{ width: 14, height: 14, borderRadius: '50%', backgroundColor: v('error', '#f85149'), display: 'inline-block' }} />
                         }
-                    }}
-                        variant='contained'
+                        sx={{
+                            height: 40,
+                            borderColor: v('error', '#f85149'),
+                            color: v('error', '#f85149'),
+                            fontFamily: fonts.ui,
+                            fontWeight: 500,
+                            fontSize: '0.8rem',
+                            whiteSpace: 'nowrap',
+                            flexShrink: 0,
+                            minWidth: 110,
+                            '&:hover': {
+                                backgroundColor: 'rgba(248,81,73,0.1)',
+                                borderColor: v('error', '#f85149'),
+                            },
+                        }}
+                    >
+                        {t('terminal.reconnect')}
+                    </Button>
+                ) : (
+                    <Button
+                        variant='outlined'
                         disableElevation
                         onClick={() => props.send()}
-                        fullWidth
-                    >{t('terminal.send')}</Button>
+                        sx={{
+                            height: 40,
+                            borderColor: v('border', '#30363d'),
+                            color: v('text', '#d4d4d4'),
+                            fontFamily: fonts.ui,
+                            fontWeight: 500,
+                            fontSize: '0.8rem',
+                            whiteSpace: 'nowrap',
+                            flexShrink: 0,
+                            minWidth: 80,
+                            '&:hover': {
+                                backgroundColor: v('accent-dim', 'rgba(13,180,214,0.15)'),
+                                borderColor: v('accent', '#0db4d6'),
+                                color: v('text', '#d4d4d4'),
+                            },
+                        }}
+                    >
+                        {t('terminal.send')}
+                    </Button>
                 )}
-            </Grid>
-        </Grid>
+            </Box>
+        </Box>
     )
 }
 
@@ -124,6 +146,9 @@ TerminalInput.propTypes = {
     send: PropTypes.func,
     disabled: PropTypes.bool,
     connect: PropTypes.func,
+    baudRate: PropTypes.number,
+    ctrl: PropTypes.bool,
+    crtTheme: PropTypes.bool,
 }
 
 export default TerminalInput

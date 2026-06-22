@@ -4,8 +4,12 @@
 		"toasts": {
 			"connected": "Conectado 🚀",
 			"disconnected": "Conexão perdida 🙀",
+			"reconnecting": "Reconectando... ({{attempt}}/{{maxAttempts}}) 🔄",
+			"reconnectingWithDelay": "Reconectando... ({{attempt}}/{{maxAttempts}}, tentar novamente em {{seconds}}s) 🔄",
+			"reconnectFailed": "Falha na reconexão após o máximo de tentativas ❌",
 			"historyCleared": "Histórico limpo 🧹",
-			"settingsSaved": "Configurações salvas ✨"
+			"settingsSaved": "Configurações salvas ✨",
+			"restoredSession": "Restauradas {{count}} linhas da sessão anterior 📋"
 		}
 	},
 	"header": {
@@ -33,19 +37,42 @@
 	"terminal": {
 		"input": "Entrada",
 		"send": "Enviar",
-		"history": "Histórico"
+		"reconnect": "Reconectar",
+		"history": "Histórico",
+		"toolbar": {
+			"clear": "Limpar histórico",
+			"pause": "Pausar auto-scroll",
+			"resume": "Retomar auto-scroll",
+			"search": "Pesquisar (Ctrl+F)",
+			"export": "Exportar log",
+			"settings": "Configurações"
+		},
+		"searchPlaceholder": "Pesquisar...",
+		"scrollToBottom": "Ir para o final",
+		"paused": "● PAUSADO"
 	},
 	"settings": {
 		"title": "Configurações",
 		"serialConnection": "Conexão Serial",
+		"colorScheme": "Esquema de cores",
+		"colorSchemeDescription": "Escolha um tema de cor para o terminal",
 		"baudRate": "Taxa de Baud",
 		"baudRateReconnect": "Taxa de Baud (Requer Reconexão)",
 		"lineEnding": "Fim de Linha",
 		"showInput": "Mostrar entrada (eco)",
 		"showTimestamps": "Mostrar timestamps",
 		"detectCtrl": "Detectar CTRL+C, CTRL+D",
+		"display": "Exibição",
+		"crtTheme": "Tema CRT de terminal",
+		"maxLines": "Máx. linhas no buffer",
+		"reconnection": "Reconexão",
+		"autoReconnect": "Auto-reconectar",
+		"backoffEnabled": "Backoff exponencial",
+		"reconnectInterval": "Intervalo de reconexão",
+		"storage": "Armazenamento",
+		"persistLog": "Persistir log entre sessões",
 		"buttons": {
-			"reset": "Resetar",
+			"reset": "Redefinir",
 			"cancel": "Cancelar",
 			"save": "Salvar"
 		}
@@ -70,6 +97,9 @@
 	},
 	"connectionStatus": {
 		"usbReceiver": "Conectado ao Receptor USB",
-		"tracker": "Conectado ao madTracker"
+		"tracker": "Conectado ao madTracker",
+		"connected": "Conectado",
+		"disconnected": "Desconectado",
+		"reconnectingCountdown": "Reconectando ({{attempt}}/{{maxAttempts}}) - tentar em {{seconds}}s"
 	}
 }

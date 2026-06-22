@@ -4,8 +4,12 @@
 		"toasts": {
 			"connected": "接続しました 🚀",
 			"disconnected": "接続が失われました 🙀",
+			"reconnecting": "再接続中... ({{attempt}}/{{maxAttempts}}) 🔄",
+			"reconnectingWithDelay": "再接続中... ({{attempt}}/{{maxAttempts}}, {{seconds}}秒後に再試行) 🔄",
+			"reconnectFailed": "最大試行回数に達し、再接続に失敗しました ❌",
 			"historyCleared": "履歴をクリアしました 🧹",
-			"settingsSaved": "設定を保存しました ✨"
+			"settingsSaved": "設定を保存しました ✨",
+			"restoredSession": "前回のセッションから{{count}}行を復元しました 📋"
 		}
 	},
 	"header": {
@@ -33,17 +37,40 @@
 	"terminal": {
 		"input": "入力",
 		"send": "送信",
-		"history": "履歴"
+		"reconnect": "再接続",
+		"history": "履歴",
+		"toolbar": {
+			"clear": "履歴をクリア",
+			"pause": "自動スクロールを一時停止",
+			"resume": "自動スクロールを再開",
+			"search": "検索 (Ctrl+F)",
+			"export": "ログをエクスポート",
+			"settings": "設定"
+		},
+		"searchPlaceholder": "検索...",
+		"scrollToBottom": "一番下にスクロール",
+		"paused": "● 一時停止中"
 	},
 	"settings": {
 		"title": "設定",
 		"serialConnection": "シリアル接続",
+		"colorScheme": "カラースキーム",
+		"colorSchemeDescription": "ターミナルのカラーテーマを選択",
 		"baudRate": "ボーレート",
 		"baudRateReconnect": "ボーレート（再接続が必要）",
 		"lineEnding": "行末文字",
 		"showInput": "入力を表示（エコー）",
 		"showTimestamps": "タイムスタンプを表示",
 		"detectCtrl": "CTRL+C、CTRL+Dを検出",
+		"display": "表示",
+		"crtTheme": "CRTターミナルテーマ",
+		"maxLines": "最大バッファ行数",
+		"reconnection": "再接続",
+		"autoReconnect": "自動再接続",
+		"backoffEnabled": "指数バックオフ",
+		"reconnectInterval": "再接続間隔",
+		"storage": "ストレージ",
+		"persistLog": "ログをセッション間で保持",
 		"buttons": {
 			"reset": "リセット",
 			"cancel": "キャンセル",
@@ -58,7 +85,7 @@
 		"close": "閉じる"
 	},
 	"footer": {
-		"madeWith": "❤️ で作成 by"
+		"madeWith": "❤️ で作成"
 	},
 	"language": {
 		"selector": "言語",
@@ -72,6 +99,9 @@
 	},
 	"connectionStatus": {
 		"usbReceiver": "USBレシーバーに接続",
-		"tracker": "madTrackerに接続"
+		"tracker": "madTrackerに接続",
+		"connected": "接続済み",
+		"disconnected": "切断されました",
+		"reconnectingCountdown": "再接続中 ({{attempt}}/{{maxAttempts}}) - {{seconds}}秒後に再試行"
 	}
 }

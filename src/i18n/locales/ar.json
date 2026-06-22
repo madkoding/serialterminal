@@ -4,8 +4,12 @@
 		"toasts": {
 			"connected": "متصل 🚀",
 			"disconnected": "فقدان الاتصال 🙀",
+			"reconnecting": "إعادة الاتصال... ({{attempt}}/{{maxAttempts}}) 🔄",
+			"reconnectingWithDelay": "إعادة الاتصال... ({{attempt}}/{{maxAttempts}}, إعادة المحاولة بعد {{seconds}}ث) 🔄",
+			"reconnectFailed": "فشلت إعادة الاتصال بعد أقصى عدد من المحاولات ❌",
 			"historyCleared": "تم مسح السجل 🧹",
-			"settingsSaved": "تم حفظ الإعدادات ✨"
+			"settingsSaved": "تم حفظ الإعدادات ✨",
+			"restoredSession": "تمت استعادة {{count}} سطر من الجلسة السابقة 📋"
 		}
 	},
 	"header": {
@@ -33,17 +37,40 @@
 	"terminal": {
 		"input": "إدخال",
 		"send": "إرسال",
-		"history": "السجل"
+		"reconnect": "إعادة الاتصال",
+		"history": "السجل",
+		"toolbar": {
+			"clear": "مسح السجل",
+			"pause": "إيقاف التمرير التلقائي",
+			"resume": "استئناف التمرير التلقائي",
+			"search": "بحث (Ctrl+F)",
+			"export": "تصدير السجل",
+			"settings": "الإعدادات"
+		},
+		"searchPlaceholder": "بحث...",
+		"scrollToBottom": "الانتقال إلى الأسفل",
+		"paused": "● متوقف مؤقتاً"
 	},
 	"settings": {
 		"title": "الإعدادات",
 		"serialConnection": "الاتصال التسلسلي",
+		"colorScheme": "نظام الألوان",
+		"colorSchemeDescription": "اختر سمة ألوان للطرفية",
 		"baudRate": "معدل البود",
 		"baudRateReconnect": "معدل البود (يتطلب إعادة اتصال)",
 		"lineEnding": "نهاية السطر",
 		"showInput": "إظهار الإدخال (صدى)",
 		"showTimestamps": "إظهار الطوابع الزمنية",
 		"detectCtrl": "اكتشاف CTRL+C, CTRL+D",
+		"display": "العرض",
+		"crtTheme": "سمة الطرفية CRT",
+		"maxLines": "الحد الأقصى لأسطر المخزن",
+		"reconnection": "إعادة الاتصال",
+		"autoReconnect": "إعادة الاتصال تلقائياً",
+		"backoffEnabled": "التراجع الأسي",
+		"reconnectInterval": "فاصل إعادة الاتصال",
+		"storage": "التخزين",
+		"persistLog": "الاحتفاظ بالسجل بين الجلسات",
 		"buttons": {
 			"reset": "إعادة تعيين",
 			"cancel": "إلغاء",
@@ -76,6 +103,9 @@
 	},
 	"connectionStatus": {
 		"usbReceiver": "متصل بمستقبل USB",
-		"tracker": "متصل بـ madTracker"
+		"tracker": "متصل بـ madTracker",
+		"connected": "متصل",
+		"disconnected": "غير متصل",
+		"reconnectingCountdown": "إعادة الاتصال ({{attempt}}/{{maxAttempts}}) - إعادة المحاولة بعد {{seconds}}ث"
 	}
 }

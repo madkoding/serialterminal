@@ -1,23 +1,29 @@
 import React from 'react'
-// import { useTranslation } from 'react-i18next'
 
 import Box from '@mui/material/Box'
-// import Link from '@mui/material/Link'
 import Typography from '@mui/material/Typography'
-
-// import version from '../version.js'
+import { v, fonts } from '../theme'
 
 const Footer = () => {
-    // const { t } = useTranslation()
-    
     return (
-        <Box sx={{ marginTop: 'auto' }}>
+        <Box
+            sx={{
+                borderTop: `1px solid ${v('border', '#30363d')}`,
+                py: 1,
+                mt: 'auto',
+            }}
+        >
             <Typography
                 variant='caption'
                 align='center'
                 display='block'
-                sx={{ color: '#ddd' }}>
-                madTrackers @2025
+                sx={{
+                    color: v('text-muted', '#8b949e'),
+                    fontFamily: fonts.ui,
+                    fontSize: '0.72rem',
+                }}
+            >
+                madTrackers &copy;2025
             </Typography>
         </Box>
     )

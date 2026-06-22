@@ -4,8 +4,12 @@
 		"toasts": {
 			"connected": "已连接 🚀",
 			"disconnected": "连接断开 🙀",
+			"reconnecting": "重新连接中... ({{attempt}}/{{maxAttempts}}) 🔄",
+			"reconnectingWithDelay": "重新连接中... ({{attempt}}/{{maxAttempts}}, {{seconds}}秒后重试) 🔄",
+			"reconnectFailed": "最大尝试次数后重新连接失败 ❌",
 			"historyCleared": "历史记录已清除 🧹",
-			"settingsSaved": "设置已保存 ✨"
+			"settingsSaved": "设置已保存 ✨",
+			"restoredSession": "已从上次会话恢复 {{count}} 行 📋"
 		}
 	},
 	"header": {
@@ -33,17 +37,40 @@
 	"terminal": {
 		"input": "输入",
 		"send": "发送",
-		"history": "历史记录"
+		"reconnect": "重新连接",
+		"history": "历史记录",
+		"toolbar": {
+			"clear": "清除历史记录",
+			"pause": "暂停自动滚动",
+			"resume": "恢复自动滚动",
+			"search": "搜索 (Ctrl+F)",
+			"export": "导出日志",
+			"settings": "设置"
+		},
+		"searchPlaceholder": "搜索...",
+		"scrollToBottom": "滚动到底部",
+		"paused": "● 已暂停"
 	},
 	"settings": {
 		"title": "设置",
 		"serialConnection": "串行连接",
+		"colorScheme": "配色方案",
+		"colorSchemeDescription": "选择终端的颜色主题",
 		"baudRate": "波特率",
 		"baudRateReconnect": "波特率（需要重新连接）",
 		"lineEnding": "行结束符",
 		"showInput": "显示输入（回显）",
 		"showTimestamps": "显示时间戳",
 		"detectCtrl": "检测 CTRL+C, CTRL+D",
+		"display": "显示",
+		"crtTheme": "CRT 终端主题",
+		"maxLines": "最大缓冲区行数",
+		"reconnection": "重新连接",
+		"autoReconnect": "自动重新连接",
+		"backoffEnabled": "指数退避",
+		"reconnectInterval": "重新连接间隔",
+		"storage": "存储",
+		"persistLog": "在会话之间持久化日志",
 		"buttons": {
 			"reset": "重置",
 			"cancel": "取消",
@@ -74,6 +101,9 @@
 	},
 	"connectionStatus": {
 		"usbReceiver": "已连接到 USB 接收器",
-		"tracker": "已连接到 madTracker"
+		"tracker": "已连接到 madTracker",
+		"connected": "已连接",
+		"disconnected": "已断开",
+		"reconnectingCountdown": "重新连接中 ({{attempt}}/{{maxAttempts}}) - {{seconds}}秒后重试"
 	}
 }

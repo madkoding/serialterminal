@@ -4,8 +4,12 @@
 		"toasts": {
 			"connected": "Connesso 🚀",
 			"disconnected": "Connessione persa 🙀",
+			"reconnecting": "Riconnessione... ({{attempt}}/{{maxAttempts}}) 🔄",
+			"reconnectingWithDelay": "Riconnessione... ({{attempt}}/{{maxAttempts}}, riprovo tra {{seconds}}s) 🔄",
+			"reconnectFailed": "Riconnessione fallita dopo il massimo dei tentativi ❌",
 			"historyCleared": "Cronologia cancellata 🧹",
-			"settingsSaved": "Impostazioni salvate ✨"
+			"settingsSaved": "Impostazioni salvate ✨",
+			"restoredSession": "Ripristinate {{count}} righe dalla sessione precedente 📋"
 		}
 	},
 	"header": {
@@ -33,17 +37,40 @@
 	"terminal": {
 		"input": "Input",
 		"send": "Invia",
-		"history": "Cronologia"
+		"reconnect": "Riconnetti",
+		"history": "Cronologia",
+		"toolbar": {
+			"clear": "Pulisci cronologia",
+			"pause": "Pausa auto-scroll",
+			"resume": "Riprendi auto-scroll",
+			"search": "Cerca (Ctrl+F)",
+			"export": "Esporta log",
+			"settings": "Impostazioni"
+		},
+		"searchPlaceholder": "Cerca...",
+		"scrollToBottom": "Vai in fondo",
+		"paused": "● IN PAUSA"
 	},
 	"settings": {
 		"title": "Impostazioni",
 		"serialConnection": "Connessione Seriale",
+		"colorScheme": "Schema colori",
+		"colorSchemeDescription": "Scegli un tema colore per il terminale",
 		"baudRate": "Baud Rate",
 		"baudRateReconnect": "Baud Rate (Richiede Riconnessione)",
 		"lineEnding": "Fine Riga",
 		"showInput": "Mostra input (eco)",
 		"showTimestamps": "Mostra timestamp",
 		"detectCtrl": "Rileva CTRL+C, CTRL+D",
+		"display": "Visualizzazione",
+		"crtTheme": "Tema CRT di terminale",
+		"maxLines": "Max righe nel buffer",
+		"reconnection": "Riconnessione",
+		"autoReconnect": "Riconnessione automatica",
+		"backoffEnabled": "Backoff esponenziale",
+		"reconnectInterval": "Intervallo di riconnessione",
+		"storage": "Archiviazione",
+		"persistLog": "Persisti log tra sessioni",
 		"buttons": {
 			"reset": "Ripristina",
 			"cancel": "Annulla",
@@ -69,6 +96,9 @@
 	},
 	"connectionStatus": {
 		"usbReceiver": "Connesso al Ricevitore USB",
-		"tracker": "Connesso a madTracker"
+		"tracker": "Connesso a madTracker",
+		"connected": "Connesso",
+		"disconnected": "Disconnesso",
+		"reconnectingCountdown": "Riconnessione ({{attempt}}/{{maxAttempts}}) - riprovo tra {{seconds}}s"
 	}
 }

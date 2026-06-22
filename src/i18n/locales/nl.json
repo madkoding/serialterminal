@@ -4,8 +4,12 @@
 		"toasts": {
 			"connected": "Verbonden 🚀",
 			"disconnected": "Verbinding verloren 🙀",
+			"reconnecting": "Opnieuw verbinden... ({{attempt}}/{{maxAttempts}}) 🔄",
+			"reconnectingWithDelay": "Opnieuw verbinden... ({{attempt}}/{{maxAttempts}}, opnieuw proberen over {{seconds}}s) 🔄",
+			"reconnectFailed": "Herverbinding mislukt na maximaal aantal pogingen ❌",
 			"historyCleared": "Geschiedenis gewist 🧹",
-			"settingsSaved": "Instellingen opgeslagen ✨"
+			"settingsSaved": "Instellingen opgeslagen ✨",
+			"restoredSession": "{{count}} regels hersteld van vorige sessie 📋"
 		}
 	},
 	"header": {
@@ -33,17 +37,40 @@
 	"terminal": {
 		"input": "Invoer",
 		"send": "Verzenden",
-		"history": "Geschiedenis"
+		"reconnect": "Opnieuw verbinden",
+		"history": "Geschiedenis",
+		"toolbar": {
+			"clear": "Geschiedenis wissen",
+			"pause": "Auto-scroll pauzeren",
+			"resume": "Auto-scroll hervatten",
+			"search": "Zoeken (Ctrl+F)",
+			"export": "Log exporteren",
+			"settings": "Instellingen"
+		},
+		"searchPlaceholder": "Zoeken...",
+		"scrollToBottom": "Naar onder scrollen",
+		"paused": "● GEPAUZEERD"
 	},
 	"settings": {
 		"title": "Instellingen",
 		"serialConnection": "Seriële Verbinding",
+		"colorScheme": "Kleurenschema",
+		"colorSchemeDescription": "Kies een kleurthema voor de terminal",
 		"baudRate": "Baudrate",
 		"baudRateReconnect": "Baudrate (Vereist Herverbinding)",
 		"lineEnding": "Regel Einde",
 		"showInput": "Invoer tonen (echo)",
 		"showTimestamps": "Tijdstempels tonen",
 		"detectCtrl": "CTRL+C, CTRL+D detecteren",
+		"display": "Weergave",
+		"crtTheme": "CRT terminal thema",
+		"maxLines": "Max. bufferregels",
+		"reconnection": "Herverbinding",
+		"autoReconnect": "Automatisch herverbinden",
+		"backoffEnabled": "Exponentiële backoff",
+		"reconnectInterval": "Herverbindingsinterval",
+		"storage": "Opslag",
+		"persistLog": "Log bewaren tussen sessies",
 		"buttons": {
 			"reset": "Resetten",
 			"cancel": "Annuleren",
@@ -77,6 +104,9 @@
 	},
 	"connectionStatus": {
 		"usbReceiver": "Verbonden met USB Ontvanger",
-		"tracker": "Verbonden met madTracker"
+		"tracker": "Verbonden met madTracker",
+		"connected": "Verbonden",
+		"disconnected": "Verbinding verbroken",
+		"reconnectingCountdown": "Opnieuw verbinden ({{attempt}}/{{maxAttempts}}) - opnieuw proberen over {{seconds}}s"
 	}
 }
