@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FormControl, Select, MenuItem } from '@mui/material'
+import { v, fonts } from '../theme'
 
 const LanguageSelector = () => {
   const { i18n, t } = useTranslation()
@@ -10,27 +11,13 @@ const LanguageSelector = () => {
     i18n.changeLanguage(event.target.value)
   }
 
-  // Actualizar el idioma cuando cambie i18n
   useEffect(() => {
-    // Detectar correctamente el idioma actual
     const getCurrentLanguage = () => {
       const currentLang = i18n.language || i18n.languages?.[0] || 'en'
-      
-      // Lista de idiomas soportados
       const supportedLanguages = ['en', 'es', 'fr', 'it', 'pt', 'de', 'ja', 'ko', 'zh', 'ru', 'ar', 'nl']
-      
-      // Verificar si el idioma actual está directamente soportado
-      if (supportedLanguages.includes(currentLang)) {
-        return currentLang
-      }
-      
-      // Si no, verificar por código de idioma (primeras dos letras)
+      if (supportedLanguages.includes(currentLang)) return currentLang
       const langCode = currentLang.split('-')[0].toLowerCase()
-      if (supportedLanguages.includes(langCode)) {
-        return langCode
-      }
-      
-      // Por defecto, usar inglés
+      if (supportedLanguages.includes(langCode)) return langCode
       return 'en'
     }
 
@@ -39,46 +26,26 @@ const LanguageSelector = () => {
       setCurrentLanguage(detectedLang)
     }
 
-    // Actualizar inmediatamente
     updateLanguage()
-
-    // Escuchar cambios de idioma
     i18n.on('languageChanged', updateLanguage)
-
-    // Cleanup
     return () => {
       i18n.off('languageChanged', updateLanguage)
     }
   }, [i18n])
 
   return (
-    <FormControl size="small" sx={{ minWidth: 90, mr: 1 }}>
+    <FormControl variant='filled' fullWidth sx={{ mt: 0.5, minWidth: '10em' }}>
       <Select
         value={currentLanguage}
         onChange={handleLanguageChange}
-        displayEmpty
-        renderValue={(value) => {
-          const lang = t(`language.${value}`)
-          return lang.length > 3 ? lang.substring(0, 3) + '…' : lang
-        }}
         sx={{
-          color: '#fff',
-          fontSize: '0.75rem',
-          fontFamily: 'Inter, system-ui, sans-serif',
-          height: 28,
-          '& .MuiOutlinedInput-notchedOutline': {
-            borderColor: 'rgba(255, 255, 255, 0.2)',
-          },
-          '&:hover .MuiOutlinedInput-notchedOutline': {
-            borderColor: 'rgba(255, 255, 255, 0.4)',
-          },
-          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-            borderColor: '#fff',
-          },
-          '& .MuiSvgIcon-root': {
-            color: '#fff',
-            fontSize: 18,
-          },
+          color: v('text', '#d4d4d4'),
+          fontFamily: fonts.ui,
+          fontSize: '0.82rem',
+          '& .MuiOutlinedInput-notchedOutline': { borderColor: v('border', '#30363d') },
+          '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: v('text-muted', '#8b949e') },
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: v('accent', '#0db4d6') },
+          '& .MuiSvgIcon-root': { color: v('text-muted', '#8b949e') },
         }}
       >
         <MenuItem value="en">{t('language.english')}</MenuItem>
