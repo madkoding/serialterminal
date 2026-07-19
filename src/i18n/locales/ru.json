@@ -45,11 +45,13 @@
 			"resume": "Возобновить автопрокрутку",
 			"search": "Поиск (Ctrl+F)",
 			"export": "Экспорт лога",
-			"settings": "Настройки"
+			"settings": "Настройки",
+			"copyAll": "Копировать консоль"
 		},
 		"searchPlaceholder": "Поиск...",
 		"scrollToBottom": "Перейти в конец",
-		"paused": "● ПАУЗА"
+		"paused": "● ПАУЗА",
+		"copied": "Скопировано"
 	},
 	"settings": {
 		"title": "Настройки",

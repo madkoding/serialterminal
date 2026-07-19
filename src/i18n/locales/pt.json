@@ -45,11 +45,13 @@
 			"resume": "Retomar auto-scroll",
 			"search": "Pesquisar (Ctrl+F)",
 			"export": "Exportar log",
-			"settings": "Configurações"
+			"settings": "Configurações",
+			"copyAll": "Copiar console"
 		},
 		"searchPlaceholder": "Pesquisar...",
 		"scrollToBottom": "Ir para o final",
-		"paused": "● PAUSADO"
+		"paused": "● PAUSADO",
+		"copied": "Copiado!"
 	},
 	"settings": {
 		"title": "Configurações",

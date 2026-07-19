@@ -45,11 +45,13 @@
 			"resume": "Reprendre auto-défilement",
 			"search": "Rechercher (Ctrl+F)",
 			"export": "Exporter le log",
-			"settings": "Paramètres"
+			"settings": "Paramètres",
+			"copyAll": "Copier la console"
 		},
 		"searchPlaceholder": "Rechercher...",
 		"scrollToBottom": "Aller en bas",
-		"paused": "● EN PAUSE"
+		"paused": "● EN PAUSE",
+		"copied": "Copié !"
 	},
 	"settings": {
 		"title": "Paramètres",

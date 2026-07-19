@@ -45,11 +45,13 @@
 			"resume": "Resume auto-scroll",
 			"search": "Search (Ctrl+F)",
 			"export": "Export log",
-			"settings": "Settings"
+			"settings": "Settings",
+			"copyAll": "Copy to clipboard"
 		},
 		"searchPlaceholder": "Search...",
 		"scrollToBottom": "Scroll to bottom",
-		"paused": "● PAUSED"
+		"paused": "● PAUSED",
+		"copied": "Copied!"
 	},
 	"settings": {
 		"title": "Settings",

@@ -45,11 +45,13 @@
 			"resume": "استئناف التمرير التلقائي",
 			"search": "بحث (Ctrl+F)",
 			"export": "تصدير السجل",
-			"settings": "الإعدادات"
+			"settings": "الإعدادات",
+			"copyAll": "نسخ وحدة التحكم"
 		},
 		"searchPlaceholder": "بحث...",
 		"scrollToBottom": "الانتقال إلى الأسفل",
-		"paused": "● متوقف مؤقتاً"
+		"paused": "● متوقف مؤقتاً",
+		"copied": "تم النسخ"
 	},
 	"settings": {
 		"title": "الإعدادات",

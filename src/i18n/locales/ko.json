@@ -45,11 +45,13 @@
 			"resume": "자동 스크롤 재개",
 			"search": "검색 (Ctrl+F)",
 			"export": "로그 내보내기",
-			"settings": "설정"
+			"settings": "설정",
+			"copyAll": "콘솔 복사"
 		},
 		"searchPlaceholder": "검색...",
 		"scrollToBottom": "맨 아래로",
-		"paused": "● 일시정지됨"
+		"paused": "● 일시정지됨",
+		"copied": "복사됨"
 	},
 	"settings": {
 		"title": "설정",

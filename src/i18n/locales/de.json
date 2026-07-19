@@ -45,11 +45,13 @@
 			"resume": "Auto-Scroll fortsetzen",
 			"search": "Suchen (Ctrl+F)",
 			"export": "Log exportieren",
-			"settings": "Einstellungen"
+			"settings": "Einstellungen",
+			"copyAll": "Konsole kopieren"
 		},
 		"searchPlaceholder": "Suchen...",
 		"scrollToBottom": "Zum Ende scrollen",
-		"paused": "● PAUSIERT"
+		"paused": "● PAUSIERT",
+		"copied": "Kopiert!"
 	},
 	"settings": {
 		"title": "Einstellungen",

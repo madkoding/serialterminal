@@ -45,11 +45,13 @@
 			"resume": "Auto-scroll hervatten",
 			"search": "Zoeken (Ctrl+F)",
 			"export": "Log exporteren",
-			"settings": "Instellingen"
+			"settings": "Instellingen",
+			"copyAll": "Console kopiëren"
 		},
 		"searchPlaceholder": "Zoeken...",
 		"scrollToBottom": "Naar onder scrollen",
-		"paused": "● GEPAUZEERD"
+		"paused": "● GEPAUZEERD",
+		"copied": "Gekopieerd!"
 	},
 	"settings": {
 		"title": "Instellingen",

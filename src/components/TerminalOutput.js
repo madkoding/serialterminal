@@ -14,6 +14,7 @@ import PauseIcon from '@mui/icons-material/Pause'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import SearchIcon from '@mui/icons-material/Search'
 import FileDownloadIcon from '@mui/icons-material/FileDownload'
+import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import CloseIcon from '@mui/icons-material/Close'
@@ -32,6 +33,8 @@ import { v, fonts } from '../theme'
 import './TerminalOutput.css'
 
 const LINE_HEIGHT = 19
+const BOTTOM_PADDING = 16
+const MAX_VISIBLE_LINES = 5000
 
 function applySgr(prevStyle, codes) {
   const style = { ...prevStyle }
@@ -184,16 +187,36 @@ const TerminalOutput = (props) => {
   const [searchTerm, setSearchTerm] = React.useState('')
   const [historyOpen, setHistoryOpen] = React.useState(false)
   const [currentMatchIdx, setCurrentMatchIdx] = React.useState(0)
+  const [copied, setCopied] = React.useState(false)
+
+  const liveHistory = props.history
+
+  // When paused, freeze the visible slice so new incoming events are not rendered.
+  const frozenSnapshot = React.useRef(null)
+  const visibleHistory = React.useMemo(() => {
+    if (paused) {
+      if (!frozenSnapshot.current) {
+        frozenSnapshot.current = liveHistory
+      }
+      return frozenSnapshot.current || []
+    }
+    frozenSnapshot.current = null
+    return liveHistory
+  }, [paused, liveHistory])
 
   const displayLines = React.useMemo(() => {
-    return props.history.filter((line, index, arr) => {
+    let filtered = visibleHistory.filter((line, index, arr) => {
       if (props.echo) {
         if (line.type === 'output' && arr[index - 1]?.type === 'userInput') return false
         return true
       }
       return line.type === 'output'
     })
-  }, [props.history, props.echo])
+    if (filtered.length > MAX_VISIBLE_LINES) {
+      filtered = filtered.slice(-MAX_VISIBLE_LINES)
+    }
+    return filtered
+  }, [visibleHistory, props.echo])
 
   const searchIndices = React.useMemo(() => {
     if (!searchTerm) return null
@@ -225,7 +248,7 @@ const TerminalOutput = (props) => {
 
   const handleScroll = ({ scrollOffset }) => {
     if (!listRef.current) return
-    const totalHeight = displayLines.length * LINE_HEIGHT
+    const totalHeight = displayLines.length * LINE_HEIGHT + BOTTOM_PADDING
     const { height } = size
     const atBottom = height > 0 && totalHeight - scrollOffset - height < 24
     setIsSticky(atBottom)
@@ -243,7 +266,17 @@ const TerminalOutput = (props) => {
     props.setHistory && props.setHistory([])
   }
 
-  const togglePause = () => setPaused(prev => !prev)
+  const togglePause = () => {
+    setPaused(prev => {
+      const next = !prev
+      if (next) {
+        frozenSnapshot.current = liveHistory
+      } else {
+        frozenSnapshot.current = null
+      }
+      return next
+    })
+  }
 
   const toggleSearch = () => {
     setSearchOpen(prev => !prev)
@@ -267,13 +300,17 @@ const TerminalOutput = (props) => {
     listRef.current?.scrollToItem(searchIndices[prev], 'center')
   }
 
-  const handleExport = () => {
-    const text = displayLines
+  const buildExportText = React.useCallback((lines) => {
+    return lines
       .map(line => {
         const ts = props.time && line.time ? `${line.time.toTimeString().substring(0, 8)} ` : ''
         return `${ts}${line.value}`
       })
       .join('\n')
+  }, [props.time])
+
+  const handleExport = () => {
+    const text = buildExportText(displayLines)
 
     const blob = new Blob([text], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
@@ -284,6 +321,17 @@ const TerminalOutput = (props) => {
     a.download = `terminal-log-${dateStr}.txt`
     a.click()
     URL.revokeObjectURL(url)
+  }
+
+  const handleCopyAll = async () => {
+    const text = buildExportText(displayLines)
+    try {
+      await navigator.clipboard.writeText(text)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1500)
+    } catch (err) {
+      console.error('Failed to copy terminal output:', err)
+    }
   }
 
   React.useEffect(() => {
@@ -306,7 +354,8 @@ const TerminalOutput = (props) => {
   const currentDisplayMatch = hasSearchResults ? currentMatchIdx + 1 : 0
   const showScrollBtn = !isSticky && displayLines.length > 0
 
-  const itemData = {
+  // Memoize itemData to avoid re-creating React elements for every render.
+  const itemData = React.useMemo(() => ({
     lines: displayLines,
     showTime: !!props.time,
     searchTerm: searchOpen ? searchTerm : '',
@@ -314,7 +363,7 @@ const TerminalOutput = (props) => {
     currentMatchIndex: searchOpen ? currentMatchIdx : null,
     highlightInLine: searchOpen && searchTerm.length > 0,
     crtTheme: props.crtTheme,
-  }
+  }), [displayLines, props.time, searchOpen, searchTerm, searchIndices, currentMatchIdx, props.crtTheme])
 
   const toolbarBtnSx = {
     color: v('text-muted', '#8b949e'),
@@ -323,6 +372,19 @@ const TerminalOutput = (props) => {
     minWidth: 28,
     borderRadius: '4px',
   }
+
+  const innerElementType = React.useMemo(() => {
+    return React.forwardRef(({ style, ...rest }, ref) => (
+      <div
+        ref={ref}
+        style={{
+          ...style,
+          paddingBottom: `${BOTTOM_PADDING}px`,
+        }}
+        {...rest}
+      />
+    ))
+  }, [])
 
   const frameClass = `terminalFrame${props.crtTheme ? ' crt' : ''}`
 
@@ -349,6 +411,11 @@ const TerminalOutput = (props) => {
           <Tooltip title={t('terminal.toolbar.search')}>
             <IconButton size='small' sx={toolbarBtnSx} onClick={toggleSearch}>
               <SearchIcon fontSize='small' />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title={copied ? t('terminal.copied') : t('terminal.toolbar.copyAll')}>
+            <IconButton size='small' sx={toolbarBtnSx} onClick={handleCopyAll}>
+              <ContentCopyIcon fontSize='small' />
             </IconButton>
           </Tooltip>
           <Tooltip title={t('terminal.toolbar.export')}>
@@ -416,7 +483,8 @@ const TerminalOutput = (props) => {
             itemSize={LINE_HEIGHT}
             itemData={itemData}
             onScroll={handleScroll}
-            overscanCount={20}
+            overscanCount={8}
+            innerElementType={innerElementType}
           >
             {Row}
           </FixedSizeList>
