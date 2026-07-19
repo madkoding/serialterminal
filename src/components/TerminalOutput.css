@@ -199,7 +199,8 @@
     height: 19px;
     color: var(--text, #d4d4d4);
     white-space: pre;
-    overflow: visible;
+    overflow: hidden;
+    max-width: 100%;
 }
 
 .lineRow.crt {

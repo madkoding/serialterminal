@@ -380,6 +380,7 @@ const TerminalOutput = (props) => {
         style={{
           ...style,
           paddingBottom: `${BOTTOM_PADDING}px`,
+          minWidth: 0,
         }}
         {...rest}
       />
