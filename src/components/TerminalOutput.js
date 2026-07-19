@@ -241,7 +241,7 @@ const TerminalOutput = (props) => {
 
   React.useEffect(() => {
     if (outerRef.current) {
-      outerRef.current.style.overflowX = 'auto'
+      outerRef.current.style.overflowX = 'hidden'
       outerRef.current.style.overflowY = 'scroll'
     }
   }, [size])
