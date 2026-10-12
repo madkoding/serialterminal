@@ -1,114 +1,114 @@
 {
-	"app": {
-		"title": "Seriële Terminal",
-		"toasts": {
-			"connected": "Verbonden 🚀",
-			"disconnected": "Verbinding verloren 🙀",
-			"reconnecting": "Opnieuw verbinden... ({{attempt}}/{{maxAttempts}}) 🔄",
-			"reconnectingWithDelay": "Opnieuw verbinden... ({{attempt}}/{{maxAttempts}}, opnieuw proberen over {{seconds}}s) 🔄",
-			"reconnectFailed": "Herverbinding mislukt na maximaal aantal pogingen ❌",
-			"historyCleared": "Geschiedenis gewist 🧹",
-			"settingsSaved": "Instellingen opgeslagen ✨",
-			"restoredSession": "{{count}} regels hersteld van vorige sessie 📋"
-		}
-	},
-	"header": {
-		"title": "Seriële Terminal",
-		"moreTools": "Meer Tools"
-	},
-	"home": {
-		"connect": "Verbinden",
-		"instructions": {
-			"step1": "1. Klik op VERBINDEN",
-			"step2": "2. Sluit uw apparaat aan en selecteer de poort",
-			"step3": "3. Geniet van de Seriële Terminal 😊"
-		},
-		"browserNotSupported": {
-			"title": "Uw browser ondersteunt Web Serial niet 😭",
-			"tryUsing": "Probeer",
-			"chrome": "Chrome",
-			"edge": "Edge",
-			"opera": "Opera",
-			"mobileNotSupported": "(iOS & Android browsers worden niet ondersteund)",
-			"learnMore": "Leer meer over",
-			"browserCompatibility": "browser compatibiliteit"
-		}
-	},
-	"terminal": {
-		"input": "Invoer",
-		"send": "Verzenden",
-		"reconnect": "Opnieuw verbinden",
-		"history": "Geschiedenis",
-		"toolbar": {
-			"clear": "Geschiedenis wissen",
-			"pause": "Auto-scroll pauzeren",
-			"resume": "Auto-scroll hervatten",
-			"search": "Zoeken (Ctrl+F)",
-			"export": "Log exporteren",
-			"settings": "Instellingen",
-			"copyAll": "Console kopiëren"
-		},
-		"searchPlaceholder": "Zoeken...",
-		"scrollToBottom": "Naar onder scrollen",
-		"paused": "● GEPAUZEERD",
-		"copied": "Gekopieerd!"
-	},
-	"settings": {
-		"title": "Instellingen",
-		"serialConnection": "Seriële Verbinding",
-		"colorScheme": "Kleurenschema",
-		"colorSchemeDescription": "Kies een kleurthema voor de terminal",
-		"baudRate": "Baudrate",
-		"baudRateReconnect": "Baudrate (Vereist Herverbinding)",
-		"lineEnding": "Regel Einde",
-		"showInput": "Invoer tonen (echo)",
-		"showTimestamps": "Tijdstempels tonen",
-		"detectCtrl": "CTRL+C, CTRL+D detecteren",
-		"display": "Weergave",
-		"crtTheme": "CRT terminal thema",
-		"maxLines": "Max. bufferregels",
-		"reconnection": "Herverbinding",
-		"autoReconnect": "Automatisch herverbinden",
-		"backoffEnabled": "Exponentiële backoff",
-		"reconnectInterval": "Herverbindingsinterval",
-		"storage": "Opslag",
-		"persistLog": "Log bewaren tussen sessies",
-		"buttons": {
-			"reset": "Resetten",
-			"cancel": "Annuleren",
-			"save": "Opslaan"
-		}
-	},
-	"error": {
-		"connectionFailed": "Verbinding mislukt",
-		"somethingWentWrong": "Het lijkt erop dat er iets mis is gegaan 😢",
-		"recommendChrome": "We raden de nieuwste versie aan van",
-		"forDesktop": "voor desktop.",
-		"close": "Sluiten"
-	},
-	"footer": {
-		"madeWith": "Gemaakt met ❤️ door"
-	},
-	"language": {
-		"selector": "Taal",
-		"english": "English",
-		"spanish": "Español",
-		"french": "Français",
-		"italian": "Italiano",
-		"portuguese": "Português",
-		"german": "Deutsch",
-		"japanese": "日本語",
-		"korean": "한국어",
-		"chinese": "中文",
-		"russian": "Русский",
-		"arabic": "العربية",
-		"dutch": "Nederlands"
-	},
-	"connectionStatus": {
-		"usbReceiver": "Verbonden met USB Ontvanger",
-		"tracker": "Verbonden met madTracker",
-		"connected": "Verbonden",
-		"disconnected": "Verbinding verbroken",
-		"reconnectingCountdown": "Opnieuw verbinden ({{attempt}}/{{maxAttempts}}) - opnieuw proberen over {{seconds}}s"
-	}
+  "app": {
+    "title": "Seriële Terminal",
+    "toasts": {
+      "connected": "Verbonden 🚀",
+      "disconnected": "Verbinding verloren 🙀",
+      "reconnecting": "Opnieuw verbinden... ({{attempt}}/{{maxAttempts}}) 🔄",
+      "reconnectingWithDelay": "Opnieuw verbinden... ({{attempt}}/{{maxAttempts}}, opnieuw proberen over {{seconds}}s) 🔄",
+      "reconnectFailed": "Herverbinding mislukt na maximaal aantal pogingen ❌",
+      "historyCleared": "Geschiedenis gewist 🧹",
+      "settingsSaved": "Instellingen opgeslagen ✨",
+      "restoredSession": "{{count}} regels hersteld van vorige sessie 📋"
+    }
+  },
+  "header": {
+    "title": "Seriële Terminal",
+    "moreTools": "Meer Tools"
+  },
+  "home": {
+    "connect": "Verbinden",
+    "instructions": {
+      "step1": "1. Klik op VERBINDEN",
+      "step2": "2. Sluit uw apparaat aan en selecteer de poort",
+      "step3": "3. Geniet van de Seriële Terminal 😊"
+    },
+    "browserNotSupported": {
+      "title": "Uw browser ondersteunt Web Serial niet 😭",
+      "tryUsing": "Probeer",
+      "chrome": "Chrome",
+      "edge": "Edge",
+      "opera": "Opera",
+      "mobileNotSupported": "(iOS & Android browsers worden niet ondersteund)",
+      "learnMore": "Leer meer over",
+      "browserCompatibility": "browser compatibiliteit"
+    }
+  },
+  "terminal": {
+    "input": "Invoer",
+    "send": "Verzenden",
+    "reconnect": "Opnieuw verbinden",
+    "history": "Geschiedenis",
+    "toolbar": {
+      "clear": "Geschiedenis wissen",
+      "pause": "Auto-scroll pauzeren",
+      "resume": "Auto-scroll hervatten",
+      "search": "Zoeken (Ctrl+F)",
+      "export": "Log exporteren",
+      "settings": "Instellingen",
+      "copyAll": "Console kopiëren"
+    },
+    "searchPlaceholder": "Zoeken...",
+    "scrollToBottom": "Naar onder scrollen",
+    "paused": "● GEPAUZEERD",
+    "copied": "Gekopieerd!"
+  },
+  "settings": {
+    "title": "Instellingen",
+    "serialConnection": "Seriële Verbinding",
+    "colorScheme": "Kleurenschema",
+    "colorSchemeDescription": "Kies een kleurthema voor de terminal",
+    "baudRate": "Baudrate",
+    "baudRateReconnect": "Baudrate (Vereist Herverbinding)",
+    "lineEnding": "Regel Einde",
+    "showInput": "Invoer tonen (echo)",
+    "showTimestamps": "Tijdstempels tonen",
+    "detectCtrl": "CTRL+C, CTRL+D detecteren",
+    "display": "Weergave",
+    "crtTheme": "CRT terminal thema",
+    "maxLines": "Max. bufferregels",
+    "reconnection": "Herverbinding",
+    "autoReconnect": "Automatisch herverbinden",
+    "backoffEnabled": "Exponentiële backoff",
+    "reconnectInterval": "Herverbindingsinterval",
+    "storage": "Opslag",
+    "persistLog": "Log bewaren tussen sessies",
+    "buttons": {
+      "reset": "Resetten",
+      "cancel": "Annuleren",
+      "save": "Opslaan"
+    }
+  },
+  "error": {
+    "connectionFailed": "Verbinding mislukt",
+    "somethingWentWrong": "Het lijkt erop dat er iets mis is gegaan 😢",
+    "recommendChrome": "We raden de nieuwste versie aan van",
+    "forDesktop": "voor desktop.",
+    "close": "Sluiten"
+  },
+  "footer": {
+    "madeWith": "Gemaakt met ❤️ door"
+  },
+  "language": {
+    "selector": "Taal",
+    "english": "English",
+    "spanish": "Español",
+    "french": "Français",
+    "italian": "Italiano",
+    "portuguese": "Português",
+    "german": "Deutsch",
+    "japanese": "日本語",
+    "korean": "한국어",
+    "chinese": "中文",
+    "russian": "Русский",
+    "arabic": "العربية",
+    "dutch": "Nederlands"
+  },
+  "connectionStatus": {
+    "usbReceiver": "Verbonden met USB Ontvanger",
+    "tracker": "Verbonden met madTracker",
+    "connected": "Verbonden",
+    "disconnected": "Verbinding verbroken",
+    "reconnectingCountdown": "Opnieuw verbinden ({{attempt}}/{{maxAttempts}}) - opnieuw proberen over {{seconds}}s"
+  }
 }

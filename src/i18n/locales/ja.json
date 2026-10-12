@@ -1,109 +1,109 @@
 {
-	"app": {
-		"title": "シリアルターミナル",
-		"toasts": {
-			"connected": "接続しました 🚀",
-			"disconnected": "接続が失われました 🙀",
-			"reconnecting": "再接続中... ({{attempt}}/{{maxAttempts}}) 🔄",
-			"reconnectingWithDelay": "再接続中... ({{attempt}}/{{maxAttempts}}, {{seconds}}秒後に再試行) 🔄",
-			"reconnectFailed": "最大試行回数に達し、再接続に失敗しました ❌",
-			"historyCleared": "履歴をクリアしました 🧹",
-			"settingsSaved": "設定を保存しました ✨",
-			"restoredSession": "前回のセッションから{{count}}行を復元しました 📋"
-		}
-	},
-	"header": {
-		"title": "シリアルターミナル",
-		"moreTools": "その他のツール"
-	},
-	"home": {
-		"connect": "接続",
-		"instructions": {
-			"step1": "1. 接続をクリック",
-			"step2": "2. デバイスを接続してポートを選択",
-			"step3": "3. シリアルターミナルをお楽しみください 😊"
-		},
-		"browserNotSupported": {
-			"title": "お使いのブラウザはWeb Serialに対応していません 😭",
-			"tryUsing": "次のブラウザをお試しください",
-			"chrome": "Chrome",
-			"edge": "Edge",
-			"opera": "Opera",
-			"mobileNotSupported": "(iOSとAndroidブラウザは対応していません)",
-			"learnMore": "詳しく学ぶ",
-			"browserCompatibility": "ブラウザの互換性"
-		}
-	},
-	"terminal": {
-		"input": "入力",
-		"send": "送信",
-		"reconnect": "再接続",
-		"history": "履歴",
-		"toolbar": {
-			"clear": "履歴をクリア",
-			"pause": "自動スクロールを一時停止",
-			"resume": "自動スクロールを再開",
-			"search": "検索 (Ctrl+F)",
-			"export": "ログをエクスポート",
-			"settings": "設定",
-			"copyAll": "コンソールをコピー"
-		},
-		"searchPlaceholder": "検索...",
-		"scrollToBottom": "一番下にスクロール",
-		"paused": "● 一時停止中",
-		"copied": "コピーしました"
-	},
-	"settings": {
-		"title": "設定",
-		"serialConnection": "シリアル接続",
-		"colorScheme": "カラースキーム",
-		"colorSchemeDescription": "ターミナルのカラーテーマを選択",
-		"baudRate": "ボーレート",
-		"baudRateReconnect": "ボーレート（再接続が必要）",
-		"lineEnding": "行末文字",
-		"showInput": "入力を表示（エコー）",
-		"showTimestamps": "タイムスタンプを表示",
-		"detectCtrl": "CTRL+C、CTRL+Dを検出",
-		"display": "表示",
-		"crtTheme": "CRTターミナルテーマ",
-		"maxLines": "最大バッファ行数",
-		"reconnection": "再接続",
-		"autoReconnect": "自動再接続",
-		"backoffEnabled": "指数バックオフ",
-		"reconnectInterval": "再接続間隔",
-		"storage": "ストレージ",
-		"persistLog": "ログをセッション間で保持",
-		"buttons": {
-			"reset": "リセット",
-			"cancel": "キャンセル",
-			"save": "保存"
-		}
-	},
-	"error": {
-		"connectionFailed": "接続に失敗しました",
-		"somethingWentWrong": "何かが間違っているようです 😢",
-		"recommendChrome": "最新バージョンの使用をお勧めします",
-		"forDesktop": "デスクトップ版。",
-		"close": "閉じる"
-	},
-	"footer": {
-		"madeWith": "❤️ で作成"
-	},
-	"language": {
-		"selector": "言語",
-		"english": "English",
-		"spanish": "Español",
-		"french": "Français",
-		"italian": "Italiano",
-		"portuguese": "Português",
-		"german": "Deutsch",
-		"japanese": "日本語"
-	},
-	"connectionStatus": {
-		"usbReceiver": "USBレシーバーに接続",
-		"tracker": "madTrackerに接続",
-		"connected": "接続済み",
-		"disconnected": "切断されました",
-		"reconnectingCountdown": "再接続中 ({{attempt}}/{{maxAttempts}}) - {{seconds}}秒後に再試行"
-	}
+  "app": {
+    "title": "シリアルターミナル",
+    "toasts": {
+      "connected": "接続しました 🚀",
+      "disconnected": "接続が失われました 🙀",
+      "reconnecting": "再接続中... ({{attempt}}/{{maxAttempts}}) 🔄",
+      "reconnectingWithDelay": "再接続中... ({{attempt}}/{{maxAttempts}}, {{seconds}}秒後に再試行) 🔄",
+      "reconnectFailed": "最大試行回数に達し、再接続に失敗しました ❌",
+      "historyCleared": "履歴をクリアしました 🧹",
+      "settingsSaved": "設定を保存しました ✨",
+      "restoredSession": "前回のセッションから{{count}}行を復元しました 📋"
+    }
+  },
+  "header": {
+    "title": "シリアルターミナル",
+    "moreTools": "その他のツール"
+  },
+  "home": {
+    "connect": "接続",
+    "instructions": {
+      "step1": "1. 接続をクリック",
+      "step2": "2. デバイスを接続してポートを選択",
+      "step3": "3. シリアルターミナルをお楽しみください 😊"
+    },
+    "browserNotSupported": {
+      "title": "お使いのブラウザはWeb Serialに対応していません 😭",
+      "tryUsing": "次のブラウザをお試しください",
+      "chrome": "Chrome",
+      "edge": "Edge",
+      "opera": "Opera",
+      "mobileNotSupported": "(iOSとAndroidブラウザは対応していません)",
+      "learnMore": "詳しく学ぶ",
+      "browserCompatibility": "ブラウザの互換性"
+    }
+  },
+  "terminal": {
+    "input": "入力",
+    "send": "送信",
+    "reconnect": "再接続",
+    "history": "履歴",
+    "toolbar": {
+      "clear": "履歴をクリア",
+      "pause": "自動スクロールを一時停止",
+      "resume": "自動スクロールを再開",
+      "search": "検索 (Ctrl+F)",
+      "export": "ログをエクスポート",
+      "settings": "設定",
+      "copyAll": "コンソールをコピー"
+    },
+    "searchPlaceholder": "検索...",
+    "scrollToBottom": "一番下にスクロール",
+    "paused": "● 一時停止中",
+    "copied": "コピーしました"
+  },
+  "settings": {
+    "title": "設定",
+    "serialConnection": "シリアル接続",
+    "colorScheme": "カラースキーム",
+    "colorSchemeDescription": "ターミナルのカラーテーマを選択",
+    "baudRate": "ボーレート",
+    "baudRateReconnect": "ボーレート（再接続が必要）",
+    "lineEnding": "行末文字",
+    "showInput": "入力を表示（エコー）",
+    "showTimestamps": "タイムスタンプを表示",
+    "detectCtrl": "CTRL+C、CTRL+Dを検出",
+    "display": "表示",
+    "crtTheme": "CRTターミナルテーマ",
+    "maxLines": "最大バッファ行数",
+    "reconnection": "再接続",
+    "autoReconnect": "自動再接続",
+    "backoffEnabled": "指数バックオフ",
+    "reconnectInterval": "再接続間隔",
+    "storage": "ストレージ",
+    "persistLog": "ログをセッション間で保持",
+    "buttons": {
+      "reset": "リセット",
+      "cancel": "キャンセル",
+      "save": "保存"
+    }
+  },
+  "error": {
+    "connectionFailed": "接続に失敗しました",
+    "somethingWentWrong": "何かが間違っているようです 😢",
+    "recommendChrome": "最新バージョンの使用をお勧めします",
+    "forDesktop": "デスクトップ版。",
+    "close": "閉じる"
+  },
+  "footer": {
+    "madeWith": "❤️ で作成"
+  },
+  "language": {
+    "selector": "言語",
+    "english": "English",
+    "spanish": "Español",
+    "french": "Français",
+    "italian": "Italiano",
+    "portuguese": "Português",
+    "german": "Deutsch",
+    "japanese": "日本語"
+  },
+  "connectionStatus": {
+    "usbReceiver": "USBレシーバーに接続",
+    "tracker": "madTrackerに接続",
+    "connected": "接続済み",
+    "disconnected": "切断されました",
+    "reconnectingCountdown": "再接続中 ({{attempt}}/{{maxAttempts}}) - {{seconds}}秒後に再試行"
+  }
 }

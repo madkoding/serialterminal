@@ -1,113 +1,113 @@
 {
-	"app": {
-		"title": "الطرفية التسلسلية",
-		"toasts": {
-			"connected": "متصل 🚀",
-			"disconnected": "فقدان الاتصال 🙀",
-			"reconnecting": "إعادة الاتصال... ({{attempt}}/{{maxAttempts}}) 🔄",
-			"reconnectingWithDelay": "إعادة الاتصال... ({{attempt}}/{{maxAttempts}}, إعادة المحاولة بعد {{seconds}}ث) 🔄",
-			"reconnectFailed": "فشلت إعادة الاتصال بعد أقصى عدد من المحاولات ❌",
-			"historyCleared": "تم مسح السجل 🧹",
-			"settingsSaved": "تم حفظ الإعدادات ✨",
-			"restoredSession": "تمت استعادة {{count}} سطر من الجلسة السابقة 📋"
-		}
-	},
-	"header": {
-		"title": "الطرفية التسلسلية",
-		"moreTools": "المزيد من الأدوات"
-	},
-	"home": {
-		"connect": "اتصال",
-		"instructions": {
-			"step1": "1. انقر على اتصال",
-			"step2": "2. قم بتوصيل جهازك واختر المنفذ",
-			"step3": "3. استمتع بالطرفية التسلسلية 😊"
-		},
-		"browserNotSupported": {
-			"title": "متصفحك لا يدعم Web Serial 😭",
-			"tryUsing": "جرب استخدام",
-			"chrome": "Chrome",
-			"edge": "Edge",
-			"opera": "Opera",
-			"mobileNotSupported": "(متصفحات iOS و Android غير مدعومة)",
-			"learnMore": "تعلم المزيد عن",
-			"browserCompatibility": "توافق المتصفحات"
-		}
-	},
-	"terminal": {
-		"input": "إدخال",
-		"send": "إرسال",
-		"reconnect": "إعادة الاتصال",
-		"history": "السجل",
-		"toolbar": {
-			"clear": "مسح السجل",
-			"pause": "إيقاف التمرير التلقائي",
-			"resume": "استئناف التمرير التلقائي",
-			"search": "بحث (Ctrl+F)",
-			"export": "تصدير السجل",
-			"settings": "الإعدادات",
-			"copyAll": "نسخ وحدة التحكم"
-		},
-		"searchPlaceholder": "بحث...",
-		"scrollToBottom": "الانتقال إلى الأسفل",
-		"paused": "● متوقف مؤقتاً",
-		"copied": "تم النسخ"
-	},
-	"settings": {
-		"title": "الإعدادات",
-		"serialConnection": "الاتصال التسلسلي",
-		"colorScheme": "نظام الألوان",
-		"colorSchemeDescription": "اختر سمة ألوان للطرفية",
-		"baudRate": "معدل البود",
-		"baudRateReconnect": "معدل البود (يتطلب إعادة اتصال)",
-		"lineEnding": "نهاية السطر",
-		"showInput": "إظهار الإدخال (صدى)",
-		"showTimestamps": "إظهار الطوابع الزمنية",
-		"detectCtrl": "اكتشاف CTRL+C, CTRL+D",
-		"display": "العرض",
-		"crtTheme": "سمة الطرفية CRT",
-		"maxLines": "الحد الأقصى لأسطر المخزن",
-		"reconnection": "إعادة الاتصال",
-		"autoReconnect": "إعادة الاتصال تلقائياً",
-		"backoffEnabled": "التراجع الأسي",
-		"reconnectInterval": "فاصل إعادة الاتصال",
-		"storage": "التخزين",
-		"persistLog": "الاحتفاظ بالسجل بين الجلسات",
-		"buttons": {
-			"reset": "إعادة تعيين",
-			"cancel": "إلغاء",
-			"save": "حفظ"
-		}
-	},
-	"error": {
-		"connectionFailed": "فشل الاتصال",
-		"somethingWentWrong": "يبدو أن هناك خطأ ما 😢",
-		"recommendChrome": "نوصي باستخدام أحدث إصدار من",
-		"forDesktop": "لسطح المكتب.",
-		"close": "إغلاق"
-	},
-	"footer": {
-		"madeWith": "صنع بـ ❤️ بواسطة"
-	},
-	"language": {
-		"selector": "اللغة",
-		"english": "English",
-		"spanish": "Español",
-		"french": "Français",
-		"italian": "Italiano",
-		"portuguese": "Português",
-		"german": "Deutsch",
-		"japanese": "日本語",
-		"korean": "한국어",
-		"chinese": "中文",
-		"russian": "Русский",
-		"arabic": "العربية"
-	},
-	"connectionStatus": {
-		"usbReceiver": "متصل بمستقبل USB",
-		"tracker": "متصل بـ madTracker",
-		"connected": "متصل",
-		"disconnected": "غير متصل",
-		"reconnectingCountdown": "إعادة الاتصال ({{attempt}}/{{maxAttempts}}) - إعادة المحاولة بعد {{seconds}}ث"
-	}
+  "app": {
+    "title": "الطرفية التسلسلية",
+    "toasts": {
+      "connected": "متصل 🚀",
+      "disconnected": "فقدان الاتصال 🙀",
+      "reconnecting": "إعادة الاتصال... ({{attempt}}/{{maxAttempts}}) 🔄",
+      "reconnectingWithDelay": "إعادة الاتصال... ({{attempt}}/{{maxAttempts}}, إعادة المحاولة بعد {{seconds}}ث) 🔄",
+      "reconnectFailed": "فشلت إعادة الاتصال بعد أقصى عدد من المحاولات ❌",
+      "historyCleared": "تم مسح السجل 🧹",
+      "settingsSaved": "تم حفظ الإعدادات ✨",
+      "restoredSession": "تمت استعادة {{count}} سطر من الجلسة السابقة 📋"
+    }
+  },
+  "header": {
+    "title": "الطرفية التسلسلية",
+    "moreTools": "المزيد من الأدوات"
+  },
+  "home": {
+    "connect": "اتصال",
+    "instructions": {
+      "step1": "1. انقر على اتصال",
+      "step2": "2. قم بتوصيل جهازك واختر المنفذ",
+      "step3": "3. استمتع بالطرفية التسلسلية 😊"
+    },
+    "browserNotSupported": {
+      "title": "متصفحك لا يدعم Web Serial 😭",
+      "tryUsing": "جرب استخدام",
+      "chrome": "Chrome",
+      "edge": "Edge",
+      "opera": "Opera",
+      "mobileNotSupported": "(متصفحات iOS و Android غير مدعومة)",
+      "learnMore": "تعلم المزيد عن",
+      "browserCompatibility": "توافق المتصفحات"
+    }
+  },
+  "terminal": {
+    "input": "إدخال",
+    "send": "إرسال",
+    "reconnect": "إعادة الاتصال",
+    "history": "السجل",
+    "toolbar": {
+      "clear": "مسح السجل",
+      "pause": "إيقاف التمرير التلقائي",
+      "resume": "استئناف التمرير التلقائي",
+      "search": "بحث (Ctrl+F)",
+      "export": "تصدير السجل",
+      "settings": "الإعدادات",
+      "copyAll": "نسخ وحدة التحكم"
+    },
+    "searchPlaceholder": "بحث...",
+    "scrollToBottom": "الانتقال إلى الأسفل",
+    "paused": "● متوقف مؤقتاً",
+    "copied": "تم النسخ"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "serialConnection": "الاتصال التسلسلي",
+    "colorScheme": "نظام الألوان",
+    "colorSchemeDescription": "اختر سمة ألوان للطرفية",
+    "baudRate": "معدل البود",
+    "baudRateReconnect": "معدل البود (يتطلب إعادة اتصال)",
+    "lineEnding": "نهاية السطر",
+    "showInput": "إظهار الإدخال (صدى)",
+    "showTimestamps": "إظهار الطوابع الزمنية",
+    "detectCtrl": "اكتشاف CTRL+C, CTRL+D",
+    "display": "العرض",
+    "crtTheme": "سمة الطرفية CRT",
+    "maxLines": "الحد الأقصى لأسطر المخزن",
+    "reconnection": "إعادة الاتصال",
+    "autoReconnect": "إعادة الاتصال تلقائياً",
+    "backoffEnabled": "التراجع الأسي",
+    "reconnectInterval": "فاصل إعادة الاتصال",
+    "storage": "التخزين",
+    "persistLog": "الاحتفاظ بالسجل بين الجلسات",
+    "buttons": {
+      "reset": "إعادة تعيين",
+      "cancel": "إلغاء",
+      "save": "حفظ"
+    }
+  },
+  "error": {
+    "connectionFailed": "فشل الاتصال",
+    "somethingWentWrong": "يبدو أن هناك خطأ ما 😢",
+    "recommendChrome": "نوصي باستخدام أحدث إصدار من",
+    "forDesktop": "لسطح المكتب.",
+    "close": "إغلاق"
+  },
+  "footer": {
+    "madeWith": "صنع بـ ❤️ بواسطة"
+  },
+  "language": {
+    "selector": "اللغة",
+    "english": "English",
+    "spanish": "Español",
+    "french": "Français",
+    "italian": "Italiano",
+    "portuguese": "Português",
+    "german": "Deutsch",
+    "japanese": "日本語",
+    "korean": "한국어",
+    "chinese": "中文",
+    "russian": "Русский",
+    "arabic": "العربية"
+  },
+  "connectionStatus": {
+    "usbReceiver": "متصل بمستقبل USB",
+    "tracker": "متصل بـ madTracker",
+    "connected": "متصل",
+    "disconnected": "غير متصل",
+    "reconnectingCountdown": "إعادة الاتصال ({{attempt}}/{{maxAttempts}}) - إعادة المحاولة بعد {{seconds}}ث"
+  }
 }

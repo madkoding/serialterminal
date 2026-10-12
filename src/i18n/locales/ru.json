@@ -1,112 +1,112 @@
 {
-	"app": {
-		"title": "Последовательный Терминал",
-		"toasts": {
-			"connected": "Подключено 🚀",
-			"disconnected": "Соединение потеряно 🙀",
-			"reconnecting": "Переподключение... ({{attempt}}/{{maxAttempts}}) 🔄",
-			"reconnectingWithDelay": "Переподключение... ({{attempt}}/{{maxAttempts}}, повтор через {{seconds}}с) 🔄",
-			"reconnectFailed": "Переподключение не удалось после максимального количества попыток ❌",
-			"historyCleared": "История очищена 🧹",
-			"settingsSaved": "Настройки сохранены ✨",
-			"restoredSession": "Восстановлено {{count}} строк из предыдущей сессии 📋"
-		}
-	},
-	"header": {
-		"title": "Последовательный Терминал",
-		"moreTools": "Больше Инструментов"
-	},
-	"home": {
-		"connect": "Подключить",
-		"instructions": {
-			"step1": "1. Нажмите ПОДКЛЮЧИТЬ",
-			"step2": "2. Подключите устройство и выберите порт",
-			"step3": "3. Наслаждайтесь Последовательным Терминалом 😊"
-		},
-		"browserNotSupported": {
-			"title": "Ваш браузер не поддерживает Web Serial 😭",
-			"tryUsing": "Попробуйте использовать",
-			"chrome": "Chrome",
-			"edge": "Edge",
-			"opera": "Opera",
-			"mobileNotSupported": "(Браузеры iOS и Android не поддерживаются)",
-			"learnMore": "Узнать больше о",
-			"browserCompatibility": "совместимости браузеров"
-		}
-	},
-	"terminal": {
-		"input": "Ввод",
-		"send": "Отправить",
-		"reconnect": "Переподключиться",
-		"history": "История",
-		"toolbar": {
-			"clear": "Очистить историю",
-			"pause": "Пауза автопрокрутки",
-			"resume": "Возобновить автопрокрутку",
-			"search": "Поиск (Ctrl+F)",
-			"export": "Экспорт лога",
-			"settings": "Настройки",
-			"copyAll": "Копировать консоль"
-		},
-		"searchPlaceholder": "Поиск...",
-		"scrollToBottom": "Перейти в конец",
-		"paused": "● ПАУЗА",
-		"copied": "Скопировано"
-	},
-	"settings": {
-		"title": "Настройки",
-		"serialConnection": "Последовательное Соединение",
-		"colorScheme": "Цветовая схема",
-		"colorSchemeDescription": "Выберите цветовую тему для терминала",
-		"baudRate": "Скорость Передачи",
-		"baudRateReconnect": "Скорость Передачи (Требует Переподключения)",
-		"lineEnding": "Окончание Строки",
-		"showInput": "Показать ввод (эхо)",
-		"showTimestamps": "Показать временные метки",
-		"detectCtrl": "Обнаружить CTRL+C, CTRL+D",
-		"display": "Отображение",
-		"crtTheme": "Тема CRT терминала",
-		"maxLines": "Макс. строк в буфере",
-		"reconnection": "Переподключение",
-		"autoReconnect": "Автопереподключение",
-		"backoffEnabled": "Экспоненциальная задержка",
-		"reconnectInterval": "Интервал переподключения",
-		"storage": "Хранилище",
-		"persistLog": "Сохранять лог между сессиями",
-		"buttons": {
-			"reset": "Сбросить",
-			"cancel": "Отмена",
-			"save": "Сохранить"
-		}
-	},
-	"error": {
-		"connectionFailed": "Подключение не удалось",
-		"somethingWentWrong": "Похоже, что-то пошло не так 😢",
-		"recommendChrome": "Мы рекомендуем использовать последнюю версию",
-		"forDesktop": "для настольных компьютеров.",
-		"close": "Закрыть"
-	},
-	"footer": {
-		"madeWith": "Сделано с ❤️"
-	},
-	"language": {
-		"selector": "Язык",
-		"english": "English",
-		"spanish": "Español",
-		"french": "Français",
-		"italian": "Italiano",
-		"portuguese": "Português",
-		"german": "Deutsch",
-		"japanese": "日本語",
-		"korean": "한국어",
-		"chinese": "中文",
-		"russian": "Русский"
-	},
-	"connectionStatus": {
-		"usbReceiver": "Подключено к USB-приемнику",
-		"tracker": "Подключено к madTracker",
-		"connected": "Подключено",
-		"disconnected": "Отключено",
-		"reconnectingCountdown": "Переподключение ({{attempt}}/{{maxAttempts}}) - повтор через {{seconds}}с"
-	}
+  "app": {
+    "title": "Последовательный Терминал",
+    "toasts": {
+      "connected": "Подключено 🚀",
+      "disconnected": "Соединение потеряно 🙀",
+      "reconnecting": "Переподключение... ({{attempt}}/{{maxAttempts}}) 🔄",
+      "reconnectingWithDelay": "Переподключение... ({{attempt}}/{{maxAttempts}}, повтор через {{seconds}}с) 🔄",
+      "reconnectFailed": "Переподключение не удалось после максимального количества попыток ❌",
+      "historyCleared": "История очищена 🧹",
+      "settingsSaved": "Настройки сохранены ✨",
+      "restoredSession": "Восстановлено {{count}} строк из предыдущей сессии 📋"
+    }
+  },
+  "header": {
+    "title": "Последовательный Терминал",
+    "moreTools": "Больше Инструментов"
+  },
+  "home": {
+    "connect": "Подключить",
+    "instructions": {
+      "step1": "1. Нажмите ПОДКЛЮЧИТЬ",
+      "step2": "2. Подключите устройство и выберите порт",
+      "step3": "3. Наслаждайтесь Последовательным Терминалом 😊"
+    },
+    "browserNotSupported": {
+      "title": "Ваш браузер не поддерживает Web Serial 😭",
+      "tryUsing": "Попробуйте использовать",
+      "chrome": "Chrome",
+      "edge": "Edge",
+      "opera": "Opera",
+      "mobileNotSupported": "(Браузеры iOS и Android не поддерживаются)",
+      "learnMore": "Узнать больше о",
+      "browserCompatibility": "совместимости браузеров"
+    }
+  },
+  "terminal": {
+    "input": "Ввод",
+    "send": "Отправить",
+    "reconnect": "Переподключиться",
+    "history": "История",
+    "toolbar": {
+      "clear": "Очистить историю",
+      "pause": "Пауза автопрокрутки",
+      "resume": "Возобновить автопрокрутку",
+      "search": "Поиск (Ctrl+F)",
+      "export": "Экспорт лога",
+      "settings": "Настройки",
+      "copyAll": "Копировать консоль"
+    },
+    "searchPlaceholder": "Поиск...",
+    "scrollToBottom": "Перейти в конец",
+    "paused": "● ПАУЗА",
+    "copied": "Скопировано"
+  },
+  "settings": {
+    "title": "Настройки",
+    "serialConnection": "Последовательное Соединение",
+    "colorScheme": "Цветовая схема",
+    "colorSchemeDescription": "Выберите цветовую тему для терминала",
+    "baudRate": "Скорость Передачи",
+    "baudRateReconnect": "Скорость Передачи (Требует Переподключения)",
+    "lineEnding": "Окончание Строки",
+    "showInput": "Показать ввод (эхо)",
+    "showTimestamps": "Показать временные метки",
+    "detectCtrl": "Обнаружить CTRL+C, CTRL+D",
+    "display": "Отображение",
+    "crtTheme": "Тема CRT терминала",
+    "maxLines": "Макс. строк в буфере",
+    "reconnection": "Переподключение",
+    "autoReconnect": "Автопереподключение",
+    "backoffEnabled": "Экспоненциальная задержка",
+    "reconnectInterval": "Интервал переподключения",
+    "storage": "Хранилище",
+    "persistLog": "Сохранять лог между сессиями",
+    "buttons": {
+      "reset": "Сбросить",
+      "cancel": "Отмена",
+      "save": "Сохранить"
+    }
+  },
+  "error": {
+    "connectionFailed": "Подключение не удалось",
+    "somethingWentWrong": "Похоже, что-то пошло не так 😢",
+    "recommendChrome": "Мы рекомендуем использовать последнюю версию",
+    "forDesktop": "для настольных компьютеров.",
+    "close": "Закрыть"
+  },
+  "footer": {
+    "madeWith": "Сделано с ❤️"
+  },
+  "language": {
+    "selector": "Язык",
+    "english": "English",
+    "spanish": "Español",
+    "french": "Français",
+    "italian": "Italiano",
+    "portuguese": "Português",
+    "german": "Deutsch",
+    "japanese": "日本語",
+    "korean": "한국어",
+    "chinese": "中文",
+    "russian": "Русский"
+  },
+  "connectionStatus": {
+    "usbReceiver": "Подключено к USB-приемнику",
+    "tracker": "Подключено к madTracker",
+    "connected": "Подключено",
+    "disconnected": "Отключено",
+    "reconnectingCountdown": "Переподключение ({{attempt}}/{{maxAttempts}}) - повтор через {{seconds}}с"
+  }
 }
