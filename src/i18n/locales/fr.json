@@ -1,105 +1,105 @@
 {
-	"app": {
-		"title": "Terminal Série",
-		"toasts": {
-			"connected": "Connecté 🚀",
-			"disconnected": "Connexion perdue 🙀",
-			"reconnecting": "Reconnexion... ({{attempt}}/{{maxAttempts}}) 🔄",
-			"reconnectingWithDelay": "Reconnexion... ({{attempt}}/{{maxAttempts}}, nouvel essai dans {{seconds}}s) 🔄",
-			"reconnectFailed": "Échec de la reconnexion après le maximum de tentatives ❌",
-			"historyCleared": "Historique effacé 🧹",
-			"settingsSaved": "Paramètres sauvegardés ✨",
-			"restoredSession": "{{count}} lignes restaurées de la session précédente 📋"
-		}
-	},
-	"header": {
-		"title": "Terminal Série",
-		"moreTools": "Plus d'Outils"
-	},
-	"home": {
-		"connect": "Connecter",
-		"instructions": {
-			"step1": "1. Cliquez sur CONNECTER",
-			"step2": "2. Branchez votre appareil et sélectionnez le port",
-			"step3": "3. Profitez du Terminal Série 😊"
-		},
-		"browserNotSupported": {
-			"title": "Votre navigateur ne supporte pas Web Serial 😭",
-			"tryUsing": "Essayez d'utiliser",
-			"chrome": "Chrome",
-			"edge": "Edge",
-			"opera": "Opera",
-			"mobileNotSupported": "(Les navigateurs iOS et Android ne sont pas supportés)",
-			"learnMore": "En savoir plus sur",
-			"browserCompatibility": "la compatibilité des navigateurs"
-		}
-	},
-	"terminal": {
-		"input": "Entrée",
-		"send": "Envoyer",
-		"reconnect": "Reconnecter",
-		"history": "Historique",
-		"toolbar": {
-			"clear": "Effacer l'historique",
-			"pause": "Pause auto-défilement",
-			"resume": "Reprendre auto-défilement",
-			"search": "Rechercher (Ctrl+F)",
-			"export": "Exporter le log",
-			"settings": "Paramètres",
-			"copyAll": "Copier la console"
-		},
-		"searchPlaceholder": "Rechercher...",
-		"scrollToBottom": "Aller en bas",
-		"paused": "● EN PAUSE",
-		"copied": "Copié !"
-	},
-	"settings": {
-		"title": "Paramètres",
-		"serialConnection": "Connexion Série",
-		"colorScheme": "Schéma de couleurs",
-		"colorSchemeDescription": "Choisissez un thème de couleur pour le terminal",
-		"baudRate": "Débit en Bauds",
-		"baudRateReconnect": "Débit en Bauds (Nécessite une Reconnexion)",
-		"lineEnding": "Fin de Ligne",
-		"showInput": "Afficher l'entrée (écho)",
-		"showTimestamps": "Afficher les horodatages",
-		"detectCtrl": "Détecter CTRL+C, CTRL+D",
-		"display": "Affichage",
-		"crtTheme": "Thème CRT de terminal",
-		"maxLines": "Lignes max du buffer",
-		"reconnection": "Reconnexion",
-		"autoReconnect": "Auto-reconnexion",
-		"backoffEnabled": "Backoff exponentiel",
-		"reconnectInterval": "Intervalle de reconnexion",
-		"storage": "Stockage",
-		"persistLog": "Conserver le log entre sessions",
-		"buttons": {
-			"reset": "Réinitialiser",
-			"cancel": "Annuler",
-			"save": "Sauvegarder"
-		}
-	},
-	"error": {
-		"connectionFailed": "Échec de la connexion",
-		"somethingWentWrong": "Il semble que quelque chose s'est mal passé 😢",
-		"recommendChrome": "Nous recommandons d'utiliser la dernière version de",
-		"forDesktop": "pour ordinateur.",
-		"close": "Fermer"
-	},
-	"footer": {
-		"madeWith": "Fait avec ❤️ par"
-	},
-	"language": {
-		"selector": "Langue",
-		"english": "English",
-		"spanish": "Español",
-		"french": "Français"
-	},
-	"connectionStatus": {
-		"usbReceiver": "Connecté au Récepteur USB",
-		"tracker": "Connecté à madTracker",
-		"connected": "Connecté",
-		"disconnected": "Déconnecté",
-		"reconnectingCountdown": "Reconnexion ({{attempt}}/{{maxAttempts}}) - nouvel essai dans {{seconds}}s"
-	}
+  "app": {
+    "title": "Terminal Série",
+    "toasts": {
+      "connected": "Connecté 🚀",
+      "disconnected": "Connexion perdue 🙀",
+      "reconnecting": "Reconnexion... ({{attempt}}/{{maxAttempts}}) 🔄",
+      "reconnectingWithDelay": "Reconnexion... ({{attempt}}/{{maxAttempts}}, nouvel essai dans {{seconds}}s) 🔄",
+      "reconnectFailed": "Échec de la reconnexion après le maximum de tentatives ❌",
+      "historyCleared": "Historique effacé 🧹",
+      "settingsSaved": "Paramètres sauvegardés ✨",
+      "restoredSession": "{{count}} lignes restaurées de la session précédente 📋"
+    }
+  },
+  "header": {
+    "title": "Terminal Série",
+    "moreTools": "Plus d'Outils"
+  },
+  "home": {
+    "connect": "Connecter",
+    "instructions": {
+      "step1": "1. Cliquez sur CONNECTER",
+      "step2": "2. Branchez votre appareil et sélectionnez le port",
+      "step3": "3. Profitez du Terminal Série 😊"
+    },
+    "browserNotSupported": {
+      "title": "Votre navigateur ne supporte pas Web Serial 😭",
+      "tryUsing": "Essayez d'utiliser",
+      "chrome": "Chrome",
+      "edge": "Edge",
+      "opera": "Opera",
+      "mobileNotSupported": "(Les navigateurs iOS et Android ne sont pas supportés)",
+      "learnMore": "En savoir plus sur",
+      "browserCompatibility": "la compatibilité des navigateurs"
+    }
+  },
+  "terminal": {
+    "input": "Entrée",
+    "send": "Envoyer",
+    "reconnect": "Reconnecter",
+    "history": "Historique",
+    "toolbar": {
+      "clear": "Effacer l'historique",
+      "pause": "Pause auto-défilement",
+      "resume": "Reprendre auto-défilement",
+      "search": "Rechercher (Ctrl+F)",
+      "export": "Exporter le log",
+      "settings": "Paramètres",
+      "copyAll": "Copier la console"
+    },
+    "searchPlaceholder": "Rechercher...",
+    "scrollToBottom": "Aller en bas",
+    "paused": "● EN PAUSE",
+    "copied": "Copié !"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "serialConnection": "Connexion Série",
+    "colorScheme": "Schéma de couleurs",
+    "colorSchemeDescription": "Choisissez un thème de couleur pour le terminal",
+    "baudRate": "Débit en Bauds",
+    "baudRateReconnect": "Débit en Bauds (Nécessite une Reconnexion)",
+    "lineEnding": "Fin de Ligne",
+    "showInput": "Afficher l'entrée (écho)",
+    "showTimestamps": "Afficher les horodatages",
+    "detectCtrl": "Détecter CTRL+C, CTRL+D",
+    "display": "Affichage",
+    "crtTheme": "Thème CRT de terminal",
+    "maxLines": "Lignes max du buffer",
+    "reconnection": "Reconnexion",
+    "autoReconnect": "Auto-reconnexion",
+    "backoffEnabled": "Backoff exponentiel",
+    "reconnectInterval": "Intervalle de reconnexion",
+    "storage": "Stockage",
+    "persistLog": "Conserver le log entre sessions",
+    "buttons": {
+      "reset": "Réinitialiser",
+      "cancel": "Annuler",
+      "save": "Sauvegarder"
+    }
+  },
+  "error": {
+    "connectionFailed": "Échec de la connexion",
+    "somethingWentWrong": "Il semble que quelque chose s'est mal passé 😢",
+    "recommendChrome": "Nous recommandons d'utiliser la dernière version de",
+    "forDesktop": "pour ordinateur.",
+    "close": "Fermer"
+  },
+  "footer": {
+    "madeWith": "Fait avec ❤️ par"
+  },
+  "language": {
+    "selector": "Langue",
+    "english": "English",
+    "spanish": "Español",
+    "french": "Français"
+  },
+  "connectionStatus": {
+    "usbReceiver": "Connecté au Récepteur USB",
+    "tracker": "Connecté à madTracker",
+    "connected": "Connecté",
+    "disconnected": "Déconnecté",
+    "reconnectingCountdown": "Reconnexion ({{attempt}}/{{maxAttempts}}) - nouvel essai dans {{seconds}}s"
+  }
 }

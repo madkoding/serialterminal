@@ -1,110 +1,110 @@
 {
-	"app": {
-		"title": "시리얼 터미널",
-		"toasts": {
-			"connected": "연결됨 🚀",
-			"disconnected": "연결 끊김 🙀",
-			"reconnecting": "재연결 중... ({{attempt}}/{{maxAttempts}}) 🔄",
-			"reconnectingWithDelay": "재연결 중... ({{attempt}}/{{maxAttempts}}, {{seconds}}초 후 재시도) 🔄",
-			"reconnectFailed": "최대 시도 횟수 후 재연결 실패 ❌",
-			"historyCleared": "기록 삭제됨 🧹",
-			"settingsSaved": "설정 저장됨 ✨",
-			"restoredSession": "이전 세션에서 {{count}}줄 복원됨 📋"
-		}
-	},
-	"header": {
-		"title": "시리얼 터미널",
-		"moreTools": "더 많은 도구"
-	},
-	"home": {
-		"connect": "연결",
-		"instructions": {
-			"step1": "1. 연결 클릭",
-			"step2": "2. 장치를 연결하고 포트 선택",
-			"step3": "3. 시리얼 터미널을 즐기세요 😊"
-		},
-		"browserNotSupported": {
-			"title": "귀하의 브라우저는 Web Serial을 지원하지 않습니다 😭",
-			"tryUsing": "다음을 사용해 보세요",
-			"chrome": "Chrome",
-			"edge": "Edge",
-			"opera": "Opera",
-			"mobileNotSupported": "(iOS 및 Android 브라우저는 지원되지 않습니다)",
-			"learnMore": "자세히 알아보기",
-			"browserCompatibility": "브라우저 호환성"
-		}
-	},
-	"terminal": {
-		"input": "입력",
-		"send": "전송",
-		"reconnect": "재연결",
-		"history": "기록",
-		"toolbar": {
-			"clear": "기록 지우기",
-			"pause": "자동 스크롤 일시정지",
-			"resume": "자동 스크롤 재개",
-			"search": "검색 (Ctrl+F)",
-			"export": "로그 내보내기",
-			"settings": "설정",
-			"copyAll": "콘솔 복사"
-		},
-		"searchPlaceholder": "검색...",
-		"scrollToBottom": "맨 아래로",
-		"paused": "● 일시정지됨",
-		"copied": "복사됨"
-	},
-	"settings": {
-		"title": "설정",
-		"serialConnection": "시리얼 연결",
-		"colorScheme": "색상 구성표",
-		"colorSchemeDescription": "터미널의 색상 테마를 선택하세요",
-		"baudRate": "보드레이트",
-		"baudRateReconnect": "보드레이트 (재연결 필요)",
-		"lineEnding": "줄 끝",
-		"showInput": "입력 표시 (에코)",
-		"showTimestamps": "타임스탬프 표시",
-		"detectCtrl": "CTRL+C, CTRL+D 감지",
-		"display": "디스플레이",
-		"crtTheme": "CRT 터미널 테마",
-		"maxLines": "최대 버퍼 라인",
-		"reconnection": "재연결",
-		"autoReconnect": "자동 재연결",
-		"backoffEnabled": "지수 백오프",
-		"reconnectInterval": "재연결 간격",
-		"storage": "저장소",
-		"persistLog": "세션 간 로그 유지",
-		"buttons": {
-			"reset": "초기화",
-			"cancel": "취소",
-			"save": "저장"
-		}
-	},
-	"error": {
-		"connectionFailed": "연결 실패",
-		"somethingWentWrong": "문제가 발생한 것 같습니다 😢",
-		"recommendChrome": "최신 버전 사용을 권장합니다",
-		"forDesktop": "데스크톱용.",
-		"close": "닫기"
-	},
-	"footer": {
-		"madeWith": "❤️로 제작"
-	},
-	"language": {
-		"selector": "언어",
-		"english": "English",
-		"spanish": "Español",
-		"french": "Français",
-		"italian": "Italiano",
-		"portuguese": "Português",
-		"german": "Deutsch",
-		"japanese": "日本語",
-		"korean": "한국어"
-	},
-	"connectionStatus": {
-		"usbReceiver": "USB 수신기에 연결됨",
-		"tracker": "madTracker에 연결됨",
-		"connected": "연결됨",
-		"disconnected": "연결 끊김",
-		"reconnectingCountdown": "재연결 중 ({{attempt}}/{{maxAttempts}}) - {{seconds}}초 후 재시도"
-	}
+  "app": {
+    "title": "시리얼 터미널",
+    "toasts": {
+      "connected": "연결됨 🚀",
+      "disconnected": "연결 끊김 🙀",
+      "reconnecting": "재연결 중... ({{attempt}}/{{maxAttempts}}) 🔄",
+      "reconnectingWithDelay": "재연결 중... ({{attempt}}/{{maxAttempts}}, {{seconds}}초 후 재시도) 🔄",
+      "reconnectFailed": "최대 시도 횟수 후 재연결 실패 ❌",
+      "historyCleared": "기록 삭제됨 🧹",
+      "settingsSaved": "설정 저장됨 ✨",
+      "restoredSession": "이전 세션에서 {{count}}줄 복원됨 📋"
+    }
+  },
+  "header": {
+    "title": "시리얼 터미널",
+    "moreTools": "더 많은 도구"
+  },
+  "home": {
+    "connect": "연결",
+    "instructions": {
+      "step1": "1. 연결 클릭",
+      "step2": "2. 장치를 연결하고 포트 선택",
+      "step3": "3. 시리얼 터미널을 즐기세요 😊"
+    },
+    "browserNotSupported": {
+      "title": "귀하의 브라우저는 Web Serial을 지원하지 않습니다 😭",
+      "tryUsing": "다음을 사용해 보세요",
+      "chrome": "Chrome",
+      "edge": "Edge",
+      "opera": "Opera",
+      "mobileNotSupported": "(iOS 및 Android 브라우저는 지원되지 않습니다)",
+      "learnMore": "자세히 알아보기",
+      "browserCompatibility": "브라우저 호환성"
+    }
+  },
+  "terminal": {
+    "input": "입력",
+    "send": "전송",
+    "reconnect": "재연결",
+    "history": "기록",
+    "toolbar": {
+      "clear": "기록 지우기",
+      "pause": "자동 스크롤 일시정지",
+      "resume": "자동 스크롤 재개",
+      "search": "검색 (Ctrl+F)",
+      "export": "로그 내보내기",
+      "settings": "설정",
+      "copyAll": "콘솔 복사"
+    },
+    "searchPlaceholder": "검색...",
+    "scrollToBottom": "맨 아래로",
+    "paused": "● 일시정지됨",
+    "copied": "복사됨"
+  },
+  "settings": {
+    "title": "설정",
+    "serialConnection": "시리얼 연결",
+    "colorScheme": "색상 구성표",
+    "colorSchemeDescription": "터미널의 색상 테마를 선택하세요",
+    "baudRate": "보드레이트",
+    "baudRateReconnect": "보드레이트 (재연결 필요)",
+    "lineEnding": "줄 끝",
+    "showInput": "입력 표시 (에코)",
+    "showTimestamps": "타임스탬프 표시",
+    "detectCtrl": "CTRL+C, CTRL+D 감지",
+    "display": "디스플레이",
+    "crtTheme": "CRT 터미널 테마",
+    "maxLines": "최대 버퍼 라인",
+    "reconnection": "재연결",
+    "autoReconnect": "자동 재연결",
+    "backoffEnabled": "지수 백오프",
+    "reconnectInterval": "재연결 간격",
+    "storage": "저장소",
+    "persistLog": "세션 간 로그 유지",
+    "buttons": {
+      "reset": "초기화",
+      "cancel": "취소",
+      "save": "저장"
+    }
+  },
+  "error": {
+    "connectionFailed": "연결 실패",
+    "somethingWentWrong": "문제가 발생한 것 같습니다 😢",
+    "recommendChrome": "최신 버전 사용을 권장합니다",
+    "forDesktop": "데스크톱용.",
+    "close": "닫기"
+  },
+  "footer": {
+    "madeWith": "❤️로 제작"
+  },
+  "language": {
+    "selector": "언어",
+    "english": "English",
+    "spanish": "Español",
+    "french": "Français",
+    "italian": "Italiano",
+    "portuguese": "Português",
+    "german": "Deutsch",
+    "japanese": "日本語",
+    "korean": "한국어"
+  },
+  "connectionStatus": {
+    "usbReceiver": "USB 수신기에 연결됨",
+    "tracker": "madTracker에 연결됨",
+    "connected": "연결됨",
+    "disconnected": "연결 끊김",
+    "reconnectingCountdown": "재연결 중 ({{attempt}}/{{maxAttempts}}) - {{seconds}}초 후 재시도"
+  }
 }

@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-const UsbIcon = ({ width = 24, height = 24, color = '#ffffff' }) => (
+const UsbIcon = ({ width = 24, height = 24, color = "#ffffff" }) => (
   <svg
     width={width}
     height={height}
@@ -13,6 +13,6 @@ const UsbIcon = ({ width = 24, height = 24, color = '#ffffff' }) => (
       fill={color}
     />
   </svg>
-)
+);
 
-export default UsbIcon
+export default UsbIcon;
